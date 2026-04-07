@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+
+    <!--Meta Tags-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title & Global Style sheet link-->
+
+    <title>Plastic Pollution</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!--Google Fonts - Logo Font - 'Playfair Display'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!--Google Fonts - Content Font - 'Google Sans'--> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+    <!--Font Awsome CDNJS Icon Link-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+
+
+    <style>
+
+
+        /* All the colors */
+
+        :root {
+
+    --dark-blue: rgb(2, 6, 24);
+    --transparent-dark-blue: rgba(38, 152, 204, 0);
+    --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+    --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+    --forth-transparent-dark-blue: rgba(2, 6, 24,0.5);
+
+    --white: rgb(255, 255, 255);
+    --light-blue: rgb(38, 152, 204);
+    --light-light-blue: rgb(169, 214, 229);
+    --light-gray: rgb(49, 68, 82);
+
+    --border-radius: 35px;
+    --card-border-radius: 20px;
+
+    --main-text-color: var(--white);
+    --span-text-color: var(--light-blue);
+    --sub-text: var(--light-light-blue);
+
+    --hover: var(--light-blue);
+    --hover-transparent: var(--third-transparent-dark-blue);
+    
+    --links: var(--light-blue);
+
+    --main-buttons: var(--dark-blue);
+    --sub-buttons: transparent;
+
+    --main-buttons-hover: var(--light-blue);
+    --sub-buttons-hover: var(--light-blue);
+
+    --border: var(--light-gray);
+    --button-border: var(--light-blue);
+    
+
+    }
+
+    
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    gap: 200px;
+    margin-bottom: 200px;
+}   
+
+.starting-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 100vh;
+
+    position: relative;
+
+    gap: 20px;
+
+    background-image: linear-gradient(var(--forth-transparent-dark-blue), var(--dark-blue));
+
+}
+
+.starting-section .background{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+	padding: 10px;
+	
+
+
+
+}
+
+.starting-section h1{
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.starting-section p{
+    font-size: 25px;
+    color: var(--sub-text);
+}
+
+/*.card img {
+    border: 3px solid var(--border);
+    border-radius: 15px;               
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);  
+    transition: 0.3s;
+}
+*/
+
+/* hover effect */
+
+/*
+.card img:hover {
+    transform: scale(1.02);  
+    box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+}
+*/
+
+#actions ul li{
+  list-style-type:none;
+}
+
+#solutions ul li{
+  list-style-type:square;
+}
+
+
+        
+
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!--Main Navivgation bar & Sub Navigation Bar-->
+
+    <header id="navigation-panel">
+        <nav>
+            <!--Main Navigation Bar-->
+            <div class="main-navbar">
+
+                <a class="logo-link" href="home.html">
+                    <div class="left">
+                        <div>
+                            <img src="img/logo.png" alt="BlueHope Logo">
+                        </div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!--Change The active tab as yours -->
+                <div class="mid">
+                    <ul>
+                        <li class="active"><a class="active" href="home.html#threats"><i class="fa-solid fa-arrow-left"></i></a></li>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile" class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Sub Navigation Bar - Internal Navigation-->
+
+            <div class="sub-navbar">
+                <!--Change the Interganl Navigation Bar Links & IDS According to your picked contents & Pages-->
+                <ul>
+                    <li><a href="#problem">The Problem</a></li>
+                    <li><a href="#impact">Impact on Marine Life</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#actions">What You Can Do</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+    </header>
+
+
+    
+    <main>
+
+        
+        <!--Hero Area-->
+
+        <section class="starting-section">
+
+            <img src="img/plastic1.jpg" class="background"  alt="plastic bottle in water">
+            <h1>Plastic Pollution</h1>
+            <p> Marine Life threatened with toxic Plastic </p>
+
+
+
+        </section>
+
+        <!--Problem card-->
+
+
+        <section class="card" id="problem">
+
+            
+            <img src="img/plastic4.jpg" alt="Threatful plastic">
+			
+
+            <div class="content">
+                <h2 class="section-title"> The Problem </h2>
+
+                <p>
+                    Plastic pollution is one of the most serious environmental issues affecting our oceans today. 
+					Every year an estimated 8-12 million tons of plastic waste enter marine environments mainly from
+					improper waste disposal and industrial activities. Major sources of plastic disposed to marine environments 
+					are polythene bags, bottles, fishing nets, lids, food containers,cans and wrappers etc.
+                </p>
+				
+				<p>
+                   These microplastics spread throughout the ocean, from coastal waters to the deepest sea trenches. 
+                   Due to their durability and widespread use, plastics accumulate over time, creating long-term damage 
+                   to marine ecosystems and biodiversity.
+                </p>
+				
+				
+
+            </div>
+
+            <div class="decoration-right"></div>
+			
+				
+            
+        </section>
+
+
+
+        <!--Impact card-->
+        <section class="card" id="impact">
+
+            <div class="content">
+                <h2>Impact on Marine Life</h2>
+                <p>
+                    Marine animals often mistake plastic for food, leading to injury or death.
+                    Sea turtles, fish, and seabirds are highly affected. Microplastics also enter the food chain,
+                    impacting human health as well. In addition, marine animals can become entangled in plastic waste 
+					such as fishing nets causing suffocation or restricted movement.<br><br>
+					
+					So, plastic pollution has extremely devastating effects on marine life.
+                </p>
+				
+            </div>
+			
+			
+            <img src="img/plastic2.jpg" alt="Ocean creatures affected by plastic">
+			
+
+            <div class="decoration-left"></div>
+
+        </section>
+
+
+
+        <!--Solutions card-->
+
+        <section class="card" id="solutions">
+		
+		
+            
+            <img src="img/plastic3.jpg" alt="Reduce plastic usage">
+			
+
+            <div class="content">
+                <h2> Solutions </h2>
+                <p>
+                    Reducing plastic pollution requires global effort. Governments, organizations, and individuals
+                    must work together. Recycling, banning single-use plastics, and promoting eco-friendly alternatives
+                    are key solutions that can be implemented. Bio-degradable materials can be used instead of plastics.
+                </p>
+				
+				<ul>
+                   <li>Implement strict regulations on plastic production and disposal</li>
+                   <li>Encourage recycling and reuse of materials</li>
+                   <li>Promote eco-friendly alternatives such as paper and biodegradable products</li>
+                   <li>Support international agreements to protect marine ecosystems</li>
+                </ul>
+            </div>
+
+            
+
+
+            <div class="decoration-right"></div>
+        </section>
+
+
+        <!--Actions card-->
+
+
+        <section class="card" id="actions">
+            
+
+            <div class="content">
+                <h2>What You Can Do</h2>
+                <p>
+                    Everyone can contribute in protecting oceans. Simple actions like reducing plastic use,
+                    participating in cleanups, and spreading awareness can make a big difference.
+                </p>
+				<ul>
+                    <li>✔ Use reusable bags, bottles, and containers</li>
+                    <li>✔ Avoid single-use plastics such as straws and cutlery</li>
+                    <li>✔ Participate in beach and community clean-up programs</li>
+                    <li>✔ Properly dispose of waste and recycle whenever possible</li>
+                    <li>✔ Spread awareness about the dangers of plastic pollution</li>
+                </ul>
+				
+				<p>
+                 By practicing sustainable habits and encouraging others to do the same, individuals can contribute 
+                 to a cleaner and healthier ocean environment.
+                </p>
+            </div>
+			
+            
+            <img src="img/plastic5.jpg" alt="Save oceans from plastic">
+			
+
+            <div class="decoration-left"></div>
+        </section>
+
+
+
+    </main>
+    <!--Main Tag end-->
+
+
+    <!--Footer Section-->
+
+    <footer>
+        <a href="#top" id="scroll-top-btn">
+            
+            <i class="fa-solid fa-arrow-up"></i>
+            
+        </a>
+        
+        <!--Footer Wave Section-->
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+
+        <!--Footer Links-->
+        <div class="footer-links">
+
+            <!--Logo and About & etc-->
+            <div class="about">
+                <div class="logo">
+                    <div>
+                        <img src="img/logo.png" alt="BlueHope logo" >
+                    </div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated
+                        to
+                        Inspiring students to protect marine ecosystems through awareness, sustainable choices, and
+                        everyday action.</p>
+                </div>
+
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+
+            <!--Quick Links-->
+
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Take Action Links-->
+
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+
+            <div class="editor-info">
+
+                <!--Academic Links Like Editor Page, Validation Pages - Put your ones-->
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a target="_blank" href="pageEditor_ST4.html">PageEditor : Mr.Sudil Hesara</a></li>
+                            <li><a target="_blank" href="validation_ST4.html">W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST4.html#content-acc" >Accessibility Statements</a></li>
+                            <li><a target="_blank"  href="pageEditor_ST4.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Social Media Links -->
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Copy Right Statement-->
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span>  <span class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights
+                reserved.</p>
+        </div>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+    <script>
+
+        
+     //Back-to-Top button disappearing icon when scrolling
+
+
+        const scrollBtn = document.getElementById("scroll-top-btn");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 600){
+                scrollBtn.style.opacity = "1";
+                scrollBtn.style.zIndex = "5000"
+            } else {
+                scrollBtn.style.opacity = "0";
+                scrollBtn.style.zIndex = "-1000"
+            }
+
+        });
+
+        
+
+        const navigationBar = document.getElementById("navigation-panel");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 200){
+                navigationBar.style.top = "10px";
+            }else{
+                navigationBar.style.top = "25px";
+            }
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>

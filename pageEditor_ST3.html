@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Meta Tags-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title & Global Style sheet link-->
+
+    <title>Page Editor</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!--Google Fonts - Logo Font - 'Playfair Display'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!--Google Fonts - Content Font - 'Google Sans'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+
+    <!--Font Awsome CDNJS Icon Link-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+    <style>
+        :root {
+
+            --dark-blue: rgb(2, 6, 24);
+            --transparent-dark-blue: rgba(38, 152, 204, 0);
+            --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+            --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+            --forth-transparent-dark-blue: rgba(2, 6, 24, 0.5);
+
+            --white: rgb(255, 255, 255);
+            --light-blue: rgb(38, 152, 204);
+            --light-light-blue: rgb(169, 214, 229);
+            --light-gray: rgb(49, 68, 82);
+
+            --border-radius: 35px;
+            --card-border-radius: 20px;
+
+            --main-text-color: var(--white);
+            --span-text-color: var(--light-blue);
+            --sub-text: var(--light-light-blue);
+
+            --hover: var(--light-blue);
+            --hover-transparent: var(--third-transparent-dark-blue);
+
+            --links: var(--light-blue);
+
+            --main-buttons: var(--dark-blue);
+            --sub-buttons: transparent;
+
+            --main-buttons-hover: var(--light-blue);
+            --sub-buttons-hover: var(--light-blue);
+
+            --border: var(--light-gray);
+            --button-border: var(--light-blue);
+
+
+        }
+
+
+        /* Add Your Page Specific Styles Here */
+
+        /* This is a Sample Styles You can Edite these styles as you want */
+        /* This is provided to get an idea */
+
+
+        .content-container {
+
+
+            width: 100%;
+            height: 2000px;
+
+            background-color: rgb(44, 3, 83);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .section-1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 800px;
+            width: 90%;
+            background-color: rgb(1, 53, 1);
+        }
+
+        .section-1-content-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgb(59, 1, 11);
+            width: 80%;
+            height: 300px;
+
+        }
+
+        .section-01-contents-01 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgb(1, 59, 59);
+            width: 90%;
+            height: 50%;
+        }
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!--Main Navivgation bar & Sub Navigation Bar-->
+
+    <header id="navigation-panel">
+        <nav>
+            <!--Main Navigation Bar-->
+            <div class="main-navbar">
+
+                <a class="logo-link" href="home.html">
+                    <div class="left">
+                        <div>
+                            <img src="img/logo.png" alt="BlueHope Logo">
+                        </div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!--Change The active tab as yours -->
+                <div class="mid">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li class="active"><a class="active" href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile"
+                                    class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Sub Navigation Bar - Internal Navigation-->
+
+            <div class="sub-navbar">
+                <!--Change the Interganl Navigation Bar Links & IDS According to your picked contents & Pages-->
+                <ul>
+                    <li><a href="pageEditor_ST1.html">Student 1 - Anupama</a></li>
+                    <li><a href="pageEditor_ST2.html">Student 2 - Janith</a></li>
+                    <li><a class="active" href="pageEditor_ST3.html">Student 3 - Isindu</a></li>
+                    <li><a href="pageEditor_ST4.html">Student 4 - Sudil</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+    </header>
+
+
+
+
+
+    <!--Dont remove this content-container div -->
+
+
+    <section class="stud">
+
+        <h1 class="section-title">Page Editor</h1>
+
+        <h2>Isindu Liyanage - w2182372 - G7 - Student 03</h2>
+    </section>
+
+    <div class="page-editor-container">
+        <!-- Main content area -->
+        <main id="page-editor-main">
+
+            <!-- Update those first three sections for the pages you were responsible to implement -->
+
+            <section class="editor-card">
+                <h2 id="feedback">Feedback <span>feedback.html</span> </h2>
+
+
+                <h3>Technical Description</h3>
+
+                <h4>Program Directory & Feedback </h4>
+
+                <p>
+                    The main content is structured using semantic HTML elements such as <code>&lt;main&gt;</code>,
+                    <code>&lt;section&gt;</code>, and <code>&lt;header&gt;</code> to organize content clearly and
+                    improve readability. The <code>&lt;main&gt;</code> element acts as the primary container for the
+                    core content.
+                </p>
+
+                <p>
+                    The layout is created using Tailwind CSS utility classes such as <code>flex</code>,
+                    <code>grid</code>, and <code>lg:grid-cols-12</code> to ensure a responsive design. Spacing and
+                    alignment are controlled using classes like <code>px-6</code>, <code>py-24</code>, and
+                    <code>gap-12</code>.
+                </p>
+
+                <p>
+                    The Program Directory section uses <code>overflow-x-auto</code> together with <code>flex</code> and
+                    <code>snap-x</code> to create a horizontal scrolling card layout. Reusable styles such as
+                    <code>ocean-card</code> provide a consistent design with borders, transparency, and hover effects.
+                </p>
+
+                <p>
+                    The Feedback Form is structured using elements like <code>&lt;form&gt;</code>,
+                    <code>&lt;fieldset&gt;</code>, <code>&lt;input&gt;</code>, and <code>&lt;textarea&gt;</code> to
+                    group and collect user data. Styling is applied using utility classes for borders, colors, and focus
+                    states to improve usability and visual consistency.
+                </p>
+
+
+
+
+
+                <p></p>
+
+
+
+
+                <h3 id="feedback-acc">Accessibility</h3>
+                <p>
+                    Accessibility was improved by using semantic elements such as <code>&lt;header&gt;</code>,
+                    <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;form&gt;</code>, which help
+                    screen readers understand the page structure.
+                </p>
+
+                <p>
+                    Form inputs are clearly labeled using <code>&lt;label&gt;</code> elements, making it easier for
+                    users to identify each field. Required fields are indicated using the <code>required</code>
+                    attribute to support form validation.
+                </p>
+
+                <p>
+                    Images include the <code>alt</code> attribute to provide alternative text for users who cannot see
+                    visual content. Buttons and links are styled with clear text and icons to improve usability.
+                </p>
+
+                <p>
+                    Color contrast and focus styles are maintained using Tailwind classes such as
+                    <code>focus:ring</code> and visible text colors, ensuring better readability and keyboard
+                    navigation.
+                </p>
+                <h3>Link to the validation page</h3>
+                <!-- Update the path to link the Page Editor with the splash page -->
+                <p><a target="_blank" href="validation_ST3.html#feedback"> Validation Page</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                <h3>Link to the page</h3>
+                <p><a target="_blank" href="feedback.html">Feedback Page</a></p>
+            </section>
+
+            <section class="editor-card">
+                <h2 id="team">Team Page <span>team.html</span> </h2>
+                <h3>Technical Description</h3>
+                <p>The main container uses the <code>&lt;main&gt;</code> tag to define the primary content area,
+                    improving structure and readability. Content is divided into sections using
+                    <code>&lt;section&gt;</code> tags, which logically separate the hero, team grid, and statistics
+                    areas.
+                </p>
+
+                <p>A responsive layout is achieved using <code>&lt;div&gt;</code> elements combined with CSS Grid
+                    classes such as <code>grid</code>, <code>grid-cols-1</code>, and <code>md:grid-cols-2</code>. This
+                    allows the layout to adapt across different screen sizes. Flexbox utilities like <code>flex</code>
+                    and <code>justify-center</code> are used for alignment and positioning.</p>
+
+                <p>Each team member is presented using a card structure with <code>&lt;img&gt;</code> for images and
+                    <code>&lt;h3&gt;</code> / <code>&lt;p&gt;</code> for text content. The <code>relative</code> and
+                    <code>absolute</code> positioning is used to create the overlay effect, where additional details
+                    appear on hover.
+                </p>
+
+                <h3 id="team-acc">Accessibility</h3>
+                <p>Accessibility was considered to improve usability for all users.
+
+                    Images include <code>&lt;img alt="..."&gt;</code> attributes, which provide descriptive alternative
+                    text for screen readers. This ensures visually impaired users can understand the content.
+
+                    Interactive elements such as team cards use <code>tabindex="0"</code>, allowing keyboard navigation.
+                    This helps users who cannot use a mouse to access all content.
+
+                    Color contrast is maintained using combinations like <code>text-white</code> on dark backgrounds to
+                    ensure readability. Text sizes such as <code>text-xl</code> and <code>text-sm</code> improve
+                    clarity.
+
+                    Semantic tags like <code>&lt;section&gt;</code> and headings (<code>&lt;h1&gt;</code>,
+                    <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>) provide a logical content structure, which assists
+                    screen readers in understanding the page hierarchy.
+
+                    Focus styles like <code>focus-within:ring</code> are used to visually indicate selected elements
+                    when navigating via keyboard.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <!-- Update the path to link the Page Editor with the splash page -->
+                <p><a target="_blank" href="validation_ST3.html#team"> Validation Page</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+
+                <h3>Link to the page</h3>
+                <p><a href="team.html">Team Page</a></p>
+            </section>
+
+            <section class="editor-card">
+                <h2 id="content">Content Page - Coral Reef Loss <span>content_ST3.html</span> </h2>
+                <h3>Technical Description</h3>
+                <p>The <code>&lt;main&gt;</code> tag wraps all primary content, improving structure and SEO. Content is
+                    divided into logical sections using <code>&lt;section&gt;</code> with unique <code>id</code>
+                    attributes (e.g., <code>&lt;section id="understanding"&gt;</code>), enabling internal navigation.
+
+                    hero section uses <code>relative</code> positioning with an <code>&lt;img&gt;</code> background and
+                    an overlay (<code>absolute inset-0</code>) to create a layered visual effect. Text is centered using
+                    <code>flex</code> and <code>justify-center</code>.
+                </p>
+                <p>Images use <code>object-cover</code> and <code>aspect-[4/3]</code> to maintain proportions. Hover
+                    effects are created with <code>group</code> and <code>group-hover:opacity-50</code> for smooth
+                    interactivity.
+
+                    The statistics and action sections use reusable card components styled with classes like
+                    <code>glass-card</code>, <code>rounded-ocean</code>, and <code>shadow-2xl</code> to maintain design
+                    consistency.
+
+                    The table is structured using <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, and
+                    <code>&lt;tbody&gt;</code> for clear data representation.
+
+                    A sidebar navigation is implemented using <code>&lt;aside&gt;</code> with
+                    <code>position: sticky</code> (<code>sticky top-40</code>), allowing users to easily navigate
+                    between sections using anchor links.
+                </p>
+                <h3 id="content-acc">Accessibility</h3>
+                <p>Images include descriptive <code>&lt;img alt="..."&gt;</code> attributes, allowing screen readers to
+                    interpret visual content.
+
+                    Semantic elements such as <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>,
+                    <code>&lt;nav&gt;</code>, and headings (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>) create a
+                    clear content hierarchy for assistive technologies.
+
+                    Internal navigation links (e.g., <code>&lt;a href="#impact"&gt;</code>) improve usability by
+                    allowing users to quickly jump between sections.
+
+                    Color contrast is maintained using classes like <code>text-white</code> and
+                    <code>text-light-blue</code> on dark backgrounds to enhance readability.
+
+                    Interactive elements such as buttons and links include hover and focus states (<code>hover:</code>,
+                    <code>transition-all</code>), providing visual feedback for user actions.
+
+                    The responsive design ensures content remains readable and functional across different devices,
+                    supporting accessibility for mobile users.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <!-- Update the path to link the Page Editor with the splash page -->
+                <p><a target="_blank" href="validation_ST3.html#content">Validation Page</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+
+                <h3>Link to the page</h3>
+                <p><a href="content_ST3.html">Content Page</a></p>
+            </section>
+
+            <section class="editor-card">
+                <h2 id="challenge"> Challenges and Lessons Learned</h2>
+                <p>One major challenge was creating a fully responsive layout that works well across different screen
+                    sizes. Initially, elements overlapped or did not align properly on smaller devices. This was
+                    resolved by using responsive utility classes such as <code>grid-cols-1</code> and
+                    <code>lg:grid-cols-2</code>, along with Flexbox adjustments like <code>flex-col</code> and
+                    <code>lg:flex-row</code>.
+
+                    Another challenge was implementing overlay and hover effects (e.g., using <code>relative</code> and
+                    <code>absolute</code> positioning). At first, the overlays did not appear correctly. This was fixed
+                    by correctly structuring parent containers with <code>relative</code> and controlling child elements
+                    using <code>absolute inset-0</code> and <code>z-index</code>.
+
+                    Managing consistent styling across sections was also difficult. This was improved by reusing utility
+                    classes like <code>rounded-ocean</code>, <code>glass-card</code>, and consistent spacing
+                    (<code>px-6</code>, <code>py-24</code>).
+
+                    From these challenges, I learned the importance of planning layout structure, testing responsiveness
+                    early, and using reusable styles. It also improved my understanding of positioning, responsive
+                    design, and clean UI development.
+                </p>
+            </section>
+
+            <section class="editor-card">
+                <h2 id="compliance"> Compliance</h2>
+                <p>The developed web pages follow key principles of JANET web page publication regulations, particularly
+                    in areas such as accessibility, usability, and responsible content design.
+
+                    Firstly, accessibility guidelines are considered by using semantic HTML elements such as
+                    <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>, and
+                    <code>&lt;aside&gt;</code>, which improve structure for screen readers. Images include
+                    <code>&lt;img alt="..."&gt;</code> attributes to ensure non-text content is accessible.
+                    Additionally, keyboard navigation is supported through features like <code>tabindex="0"</code> and
+                    visible focus styles.
+
+                    Secondly, the pages maintain good usability by implementing responsive design using CSS classes such
+                    as <code>grid</code>, <code>flex</code>, and breakpoint modifiers like <code>lg:</code>. This
+                    ensures the website functions effectively across different devices and screen sizes, aligning with
+                    JANET’s requirement for inclusive access.
+
+                    In terms of content and design, clear headings (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>)
+                    and structured navigation improve readability and user experience. Internal linking (e.g.,
+                    <code>&lt;a href="#section"&gt;</code>) supports easy navigation.
+                </p>
+
+
+            </section>
+
+            <section class="editor-card">
+                <h2 id="group"> Group Meetings and Individual Contribution Log</h2>
+
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th colspan="6">Group Meetings and Contribution Log</th>
+                        </tr>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>15 Feb 2026</td>
+                            <td>Online</td>
+                            <td>Agree SDG and assign roles</td>
+                            <td>Yes</td>
+                            <td class="contribution">I agreed to take responsibility for the Feedback Page and Team
+                                Page. </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>22 Feb 2026</td>
+                            <td>Online</td>
+                            <td>Review template design</td>
+                            <td>Yes</td>
+                            <td class="contribution">I suggested some initial layout structure for the website design.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>01 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Template Finalization</td>
+                            <td>Yes</td>
+                            <td class="contribution">I suggested back to top icon design to the final template design
+                                presented by the Leader.</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>02 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Content page topic distribution</td>
+                            <td>Yes</td>
+                            <td class="contribution">I agreed to do the Coral Reefs Loss topic</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>08 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Page Design discussion</td>
+                            <td>Yes</td>
+                            <td class="contribution">I explained my Feedback, Team and content page design idea.</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td>15 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Page Review</td>
+                            <td>Yes</td>
+                            <td class="contribution">I presented my Team Page</td>
+                        </tr>
+
+                        <tr>
+                            <td>7</td>
+                            <td>21 Mar 2026</td>
+                            <td>Online</td>
+                            <td>PageEditor and Validator page</td>
+                            <td>Yes</td>
+                            <td class="contribution">I suggested minor ideas to the customized PageEditor and Validator
+                                design presented by the Leader</td>
+                        </tr>
+
+                        <tr>
+                            <td>8</td>
+                            <td>22 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Page Review</td>
+                            <td>Yes</td>
+                            <td class="contribution">I presented my Feedback page.</td>
+                        </tr>
+
+                        <tr>
+                            <td>9</td>
+                            <td>28 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Page Review</td>
+                            <td>Yes</td>
+                            <td class="contribution">I presented my content page.</td>
+                        </tr>
+
+                        <tr>
+                            <td>10</td>
+                            <td>29 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Finalization & Finding Erros</td>
+                            <td>Yes</td>
+                            <td class="contribution">Discussed minor errors found in our page.</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+            <section class="editor-card">
+                <h2 id="ref">References</h2>
+
+                <p class="ref">
+                    Flanagan, D. (2020) JavaScript: The Definitive Guide. 7th edn. Sebastopol: OReilly Media.<br>
+                    McFarland, D. (2015) CSS: The Missing Manual. 4th edn. Sebastopol: OReilly Media.<br>
+                    Mozilla Developer Network (MDN) (2025) JavaScript Guide. Available at:
+                    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+                    (Accessed: 24 March 2026).<br>
+                    W3C (2024) CSS Cascading and Inheritance Level 4 Specification. Available at:
+                    https://www.w3.org/TR/css-cascade-4/
+                    (Accessed: 24 March 2026).
+                </p>
+            </section>
+
+
+        </main>
+
+        <!-- Sidebar area -->
+        <aside>
+            <h3>Core pages developed:</h3>
+
+            <!-- Customize this to the role you undertook. Keep only the list items you were responsible to develop, delete the rest -->
+            <ul class="top-level-ul">
+                <!-- Keep only the list items you were responsible to develop, delete the rest and update the links to the corresponding markers -->
+                <li>Student 3 - Isindu Liyanage</li>
+                <ul>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#content">Content</a></li>
+                </ul>
+
+                <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Group Meetings and Individual Contribution Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+    </div>
+
+
+
+
+    <!--Footer Section-->
+
+    <footer>
+        <a href="#top" id="scroll-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+        <!--Footer Wave Section-->
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+
+
+        <!--Footer Links-->
+        <div class="footer-links">
+
+            <!--Logo and About & etc-->
+            <div class="about">
+                <div class="logo">
+                    <div>
+                        <img src="img/logo.png" alt="BlueHope logo">
+                    </div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated
+                        to
+                        Inspiring students to protect marine ecosystems through awareness, sustainable choices, and
+                        everyday action.</p>
+                </div>
+
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+
+            <!--Quick Links-->
+
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Take Action Links-->
+
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Edit The Edior Info put your Information-->
+
+            <div class="editor-info">
+
+                <!--Academic Links Like Editor Page, Validation Pages - Put your ones-->
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a target="_blank" href="pageEditor_ST3.html">PageEditor : Isindu Liyanage</a></li>
+                            <li><a target="_blank" href="validation_ST3.html">W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST3.html" >Accessibility Statements</a></li>
+                            <li><a target="_blank"  href="pageEditor_ST3.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Social Media Links - Put Your ones here also -->
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Copy Right Statement-->
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span> <span
+                    class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights
+                reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+
+
+
+    </script>
+
+</body>
+
+</html>

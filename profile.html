@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Meta Tags-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title & Global Style sheet link-->
+
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!--Google Fonts - Logo Font - 'Playfair Display'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!--Google Fonts - Content Font - 'Google Sans'--> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+    <!--Font Awsome CDNJS Icon Link-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+
+
+    <style>
+
+        /* Colour palette */
+        
+        :root {
+
+    --dark-blue: rgb(2, 6, 24);
+    --transparent-dark-blue: rgba(38, 152, 204, 0);
+    --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+    --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+    --forth-transparent-dark-blue: rgba(2, 6, 24,0.5);
+
+    --white: rgb(255, 255, 255);
+    --light-blue: rgb(38, 152, 204);
+    --transparent-light-blue: rgba(38, 152, 204,0.3);
+    --light-light-blue: rgb(169, 214, 229);
+    --light-gray: rgb(49, 68, 82);
+
+    --border-radius: 35px;
+    --card-border-radius: 20px;
+
+    --main-text-color: var(--white);
+    --span-text-color: var(--light-blue);
+    --sub-text: var(--light-light-blue);
+
+    --hover: var(--light-blue);
+    --hover-transparent: var(--third-transparent-dark-blue);
+    
+    --links: var(--light-blue);
+
+    --main-buttons: var(--dark-blue);
+    --sub-buttons: transparent;
+
+    --main-buttons-hover: var(--light-blue);
+    --sub-buttons-hover: var(--light-blue);
+
+    --border: var(--light-gray);
+    --button-border: var(--light-blue);
+    
+
+}
+
+
+
+
+        .section-1{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+
+            gap: 80px;
+			height: 100%;
+            
+            
+			padding:40px 0;
+            width: 100%;
+
+            padding-top: 130px;
+        }
+		
+        .section-1-content-container{
+            display: flex;
+            width: 100%;
+            
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+            
+        }
+
+
+        .buttons{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 15px;
+            width: 25%;
+        }
+        .progress{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 50%;
+            gap: 20px;
+            
+            
+            
+        }
+
+
+        
+        
+
+       .profileOutput h2{
+         text-align: center;
+         color: var(--white);
+         font-size: 28px;
+         
+        }
+
+      .profileOutput p{
+        background: var(--transparent-light-blue);
+        
+        border-radius: 8px;
+        margin: 8px ;
+       }
+
+    .profileOutput p span{
+        background-color: var(--light-blue);
+        padding: 15px 15px 15px 30px;
+        color: var(--dark-blue);
+        font-size: 20px;
+        border-radius: 8px 0 0 8px;
+        margin-right: 15px;
+        
+        
+    }
+	   
+	  
+
+   
+
+
+
+.info-text{
+    color: var(--sub-text);
+    font-size:14px;
+}
+
+
+.profileOutput{
+    background: var(--transparent-dark-blue);
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    
+    border: 1px solid var(--transparent-light-blue);
+    transition: 0.5s;
+    
+}
+
+.profileOutput:hover{
+    transform: scale(1.05);
+}
+
+
+.profileOutput h3{
+    color: var(--sub-text);
+    margin-top:15px;
+}
+
+
+.profileOutput p{
+    background: var(--second-transparent-dark-blue);
+    padding: 15px 15px 15px 0;
+    font-size: 15px;
+    
+    margin:10px 0;
+}
+
+progress{
+    width:100%;
+    height:25px;
+}
+
+
+.colored-button{
+    border: 1px solid var(--transparent-light-blue);
+    background-color: var(--second-transparent-dark-blue);
+    cursor: pointer;
+}
+.colored-button:hover{
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!--Main Navivgation bar & Sub Navigation Bar-->
+
+    <header>
+        <nav>
+            <!--Main Navigation Bar-->
+            <div class="main-navbar">
+
+                <a class="logo-link" href="home.html">
+                    <div class="left">
+                        <div>
+                            <img src="img/logo.png" alt="BlueHope Logo">
+                        </div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!--Change The active tab as yours -->
+                <div class="mid">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+
+                </div>
+                <div class="right">
+                    <ul>
+                        <li class="active"><a class="active" href="profile.html"><i id="user-profile" class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Sub Navigation Bar - Internal Navigation-->
+
+            <!--
+            <div class="sub-navbar">
+                
+                <ul>
+                    <li><a href="#mission">Our Mission</a></li>
+                    <li><a href="#matter">Why Oceans Matter</a></li>
+                    <li><a href="#threats">Threats to Marine Life</a></li>
+                </ul>
+            </div> -->
+        
+
+        </nav>
+
+
+    </header>
+
+
+    
+    <main>
+
+        
+          <!--User Profile card-->
+
+            <section class="section-1">
+              
+              <h2 class="section-title"> User Profile </h2>
+                
+				
+		        <div class="section-1-content-container">
+		
+			        <div class="buttons">
+
+                     <!-- Buttons -->
+                
+                      
+                        <button class="colored-button" onclick="startStep(1)">👤 Start Step 1: Basic Info</button>
+                        <span id="step1Status"></span>
+                        
+
+                        <button class="colored-button" onclick="startStep(2)">🌊 Start Step 2: Interests</button>
+                        <span id="step2Status"></span>
+
+                        <button class="colored-button" onclick="startStep(3)">🎯 Start Step 3: Goals</button>
+                        <span id="step3Status"></span>
+
+                        <p class="info-text">You can skip any step and return later.</p>
+
+                        <h2 id="progressText">Profile Completion: 0%</h2>
+                        <progress id="progressBar" value="0" max="100"></progress>
+
+                        
+                    </div>
+
+                    <div class="progress">
+
+                        <!-- Progress -->
+                        
+
+                        
+
+                        <!-- Profile Output -->
+                        <div class="profileOutput">
+                            <h2>Basic Info</h2>
+                            
+                            <div id="step1Output"></div> 
+                           
+
+                            
+                        
+                        </div>
+                        <div class="profileOutput">
+                            <h2>Interests</h2>
+                            
+                            
+                            <div id="step2Output"></div> 
+                            
+
+                            
+                        
+                        </div>
+                        <div class="profileOutput">
+                            <h2>Goals</h2>
+                            
+                            
+                            <div id="step3Output"></div> 
+
+                            
+                        
+                        </div>
+                        
+
+
+                    </div>
+                     
+
+				</div>
+				
+            </section>
+	    
+		
+
+    </main>
+    <!--Main Tag end-->
+
+
+    <!--Footer Section-->
+
+    <footer>
+        <a href="#top" id="scroll-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+        <!--Footer Wave Section-->
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+
+        <!--Footer Links-->
+        <div class="footer-links">
+
+            <!--Logo and About & etc-->
+            <div class="about">
+                <div class="logo">
+                    <div>
+                        <img src="img/logo.png" alt="BlueHope logo" >
+                    </div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated
+                        to
+                        Inspiring students to protect marine ecosystems through awareness, sustainable choices, and
+                        everyday action.</p>
+                </div>
+
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+
+            <!--Quick Links-->
+
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Take Action Links-->
+
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+
+            <div class="editor-info">
+
+                
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a target="_blank" href="pageEditor_ST4.html">Editor : Mr.Sudil Hesara</a></li>
+                            <li><a target="_blank" href="validation_ST4.html">W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST4.html#profile-acc" >Accessibility Statements</a></li>
+                            <li><a target="_blank"  href="pageEditor_ST4.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Social Media Links - Put Your ones here also -->
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Copy Right Statement-->
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span>  <span class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights
+                reserved.</p>
+        </div>
+
+    </footer>
+	
+
+<script src="script.js"></script>
+<script>
+
+// Store user data
+let profile = {
+   step1: {},
+   step2: {},
+   step3: {}
+};
+
+// Track completed steps properly
+let completed = {
+   step1: false,
+   step2: false,
+   step3: false
+};
+
+// Start steps
+function startStep(step){
+
+    if(step === 1){
+        step1();
+    }
+    else if(step === 2){
+        step2();
+    }
+    else if(step === 3){
+        step3();
+    }
+
+    updateProgress();
+    displayProfile();
+}
+
+// STEP 1
+function step1(){
+
+    let name = prompt("Enter your name:");
+    let username = prompt("Enter your username:");
+    let role = prompt("Enter your role:");
+	let residence = prompt("Enter your residence:");
+
+    let hasData = false;
+
+    if(name){
+        profile.step1.name = name;
+        hasData = true;
+    }
+    if(username){
+        profile.step1.username = username;
+        hasData = true;
+    }
+    if(role){
+        profile.step1.role = role;
+        hasData = true;
+    }
+	if(residence){
+	    profile.step1.residence = residence;
+		hasData = true;
+	}
+
+    completed.step1 = hasData;
+    // Step completion feedback
+    if(hasData){
+         document.getElementById("step1Status").innerText = "✔ Completed";
+    }else{
+         document.getElementById("step1Status").innerText = "";
+    }
+    
+}
+
+// STEP 2
+function step2(){
+
+    let interest = prompt("Your main interest?");
+    let hobby = prompt("Your hobby?");
+    let topic = prompt("Favourite ocean topic?");
+
+    let hasData = false;
+
+    if(interest){
+        profile.step2.interest = interest;
+        hasData = true;
+    }
+    if(hobby){
+        profile.step2.hobby = hobby;
+        hasData = true;
+    }
+    if(topic){
+        profile.step2.topic = topic;
+        hasData = true;
+    }
+
+    completed.step2 = hasData;
+    // Step completion feedback
+    if(hasData){
+         document.getElementById("step2Status").innerText = "✔ Completed";
+    }else{
+         document.getElementById("step2Status").innerText = "";
+    }
+}
+
+// STEP 3
+function step3(){
+
+    let goal = prompt("Your environmental goal?");
+    let action = prompt("Action you take?");
+    let commitment = prompt("Your commitment level?");
+
+    let hasData = false;
+
+    if(goal){
+        profile.step3.goal = goal;
+        hasData = true;
+    }
+    if(action){
+        profile.step3.action = action;
+        hasData = true;
+    }
+    if(commitment){
+        profile.step3.commitment = commitment;
+        hasData = true;
+    }
+
+    completed.step3 = hasData;
+    // Step completion feedback
+    if(hasData){
+         document.getElementById("step3Status").innerText = "✔ Completed";
+    }else{
+         document.getElementById("step3Status").innerText = "";
+    }
+}
+
+// Display profile
+function displayProfile(){
+
+    let hasData = completed.step1 || completed.step2 || completed.step3;
+
+    if(!hasData) return;
+	
+    document.querySelector(".profileOutput").style.display = "block";
+
+    let s1 = profile.step1;
+    document.getElementById("step1Output").innerHTML =
+	    
+        (s1.name ? "<p><span>Name:</span> "+s1.name+"</p>" : "") +
+        (s1.username ? "<p><span>Username: </span>"+s1.username+"</p>" : "") +
+        (s1.role ? "<p><span>Role: </span>"+s1.role+"</p>" : "") +
+		(s1.residence ?"<p><span>Residence:</span> "+s1.residence+"</p>" : "");
+
+    let s2 = profile.step2;
+    document.getElementById("step2Output").innerHTML =
+	    
+        (s2.interest ? "<p><span>Interest: </span>"+s2.interest+"</p>" : "") +
+        (s2.hobby ? "<p><span>Hobby:</span> "+s2.hobby+"</p>" : "") +
+        (s2.topic ? "<p><span>Ocean Topic: </span>"+s2.topic+"</p>" : "");
+
+    let s3 = profile.step3;
+    document.getElementById("step3Output").innerHTML =
+	   
+        (s3.goal ? "<p><span>Goal:</span> "+s3.goal+"</p>" : "") +
+        (s3.action ? "<p><span>Action:</span> "+s3.action+"</p>" : "") +
+        (s3.commitment ? "<p><span>Commitment: </span> "+s3.commitment+"</p>" : "");
+}
+
+// Update progress correctly
+function updateProgress(){
+
+    let count = 0;
+
+    if(completed.step1) count++;  
+    if(completed.step2) count++;  
+    if(completed.step3) count++;  
+
+    let percent = Math.round((count / 3) * 100);
+
+    document.getElementById("progressBar").value = percent;
+    document.getElementById("progressText").innerText = "Profile Completion: " + percent + "% (Step " + count + " of 3 completed)";
+}
+
+
+
+
+</script>
+
+
+</body>
+
+</html>

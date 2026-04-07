@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Meta Tags-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title & Global Style sheet link-->
+
+    <title>pageEditor</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!--Google Fonts - Logo Font - 'Playfair Display'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!--Google Fonts - Content Font - 'Google Sans'--> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+    <!--Font Awsome CDNJS Icon Link-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+
+
+    <style>
+
+
+        :root {
+
+    --dark-blue: rgb(2, 6, 24);
+    --transparent-dark-blue: rgba(38, 152, 204, 0);
+    --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+    --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+    --forth-transparent-dark-blue: rgba(2, 6, 24,0.5);
+
+    --white: rgb(255, 255, 255);
+    --light-blue: rgb(38, 152, 204);
+    --light-light-blue: rgb(169, 214, 229);
+    --light-gray: rgb(49, 68, 82);
+
+    --border-radius: 35px;
+    --card-border-radius: 20px;
+
+    --main-text-color: var(--white);
+    --span-text-color: var(--light-blue);
+    --sub-text: var(--light-light-blue);
+
+    --hover: var(--light-blue);
+    --hover-transparent: var(--third-transparent-dark-blue);
+    
+    --links: var(--light-blue);
+
+    --main-buttons: var(--dark-blue);
+    --sub-buttons: transparent;
+
+    --main-buttons-hover: var(--light-blue);
+    --sub-buttons-hover: var(--light-blue);
+
+    --border: var(--light-gray);
+    --button-border: var(--light-blue);
+    
+
+}
+
+        
+
+
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!--Main Navivgation bar & Sub Navigation Bar-->
+
+    <header id="navigation-panel">
+        <nav>
+            <!--Main Navigation Bar-->
+            <div class="main-navbar">
+
+                <a class="logo-link" href="home.html">
+                    <div class="left">
+                        <div>
+                            <img src="img/logo.png" alt="BlueHope Logo">
+                        </div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+
+                
+                <div class="mid">
+                    <ul>
+                        <li ><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li class="active"><a class="active"  href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile" class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Sub Navigation Bar - Internal Navigation-->
+
+
+            <div class="sub-navbar">
+                
+                <ul>
+                    <li><a href="pageEditor_ST1.html">Student 1 - Anupama</a></li>
+                    <li><a href="pageEditor_ST2.html">Student 2 - Janith</a></li>
+                    <li><a href="pageEditor_ST3.html">Student 3 - Isindu</a></li>
+                    <li><a class="active" href="pageEditor_ST4.html">Student 4 - Sudil</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+    </header>
+
+
+    
+    
+
+        
+        
+
+        <section class="stud">
+            
+            <h1 class="section-title">Page Editor</h1>
+            
+            <h2>Sudil Hesara - w2182062 - G7 - Student 04</h2>
+        </section>
+
+        <div class="page-editor-container">
+            <!-- Main content area -->
+            <main id="page-editor-main">
+
+                
+
+                <section class="editor-card">
+                    <h2 id="profile">User Profile page <span>profile.html</span></h2>
+                        <h3>Technical Description</h3>
+
+
+                            <p>Content in <code>main</code> are grouped through calling class inside <code>section</code> then
+                            <code>button onclick="startStep()"</code> using this button will aceess the function and triggers
+                            JavaScript logic for collecting user input step by step.<code>progress</code> built in html element displays completion
+                            percentage visually. Using class as profileOutput in <code>div</code> sections act as a container and displays
+                            user-entered data dynamically.<br><br>
+                            
+                            Global CSS used for designing colour themes and other effects like hover etc. to improve more consistency.
+                            The flexbox layout used <code>display:flex</code> creates responsive layouts and aligns elements neatly 
+                            without floats.CSS applied for card designs and <code>hover</code> effects used on buttons and cards will
+                            enhance user interaction feedback.<code>span</code> is styled differently to act like a label.<br><br>
+
+                            Main logic in this user profile is when user clicks button data collected via <code>prompt()</code> functions step-by-step
+                            and stored in objects created,update, track and then displayed using <code>innerHTML</code>.Here at first single object <code>profile</code> 
+                            stores all data and each step has own nested object. So it'll be easy to access like <code>profile.step1.name</code>. And then using functions like
+                            <code>startStep()</code> and logically procede using conditional statements using <code>if</code> , <code>else-if</code> decides which stepfunction
+                            to run. <code>prompt()</code> function will collect user input and store the data if user enters something using conditional comparisons calling
+                            the objects created inside the function.<code>document.getElementById</code> updates text dynamically using inner Text and profile displayed through <code>innerHTML</code> designed using
+                            <code>updateProgress</code> and <code>displayProfile</code> functions to get the logic completed.Additionally <code>s1.name?</code> is a ternary operator which is the shorter-version of if-else which asks
+                            if s1.name has value showing HTML and if it's empty show nothing. Also <code>document.querySelector()</code> will selects the first element that matches the classes.<code>hasData</code> acts as a boolean flag control 
+                            to track the state of completed steps and make decisions later, also it'll prevent empty steps being marked completed.<br><br>
+                            
+                             
+                            </p> 
+                        
+                        <h3 id="profile-acc">Accessibility</h3>
+                            <p>This page uses the same template designed and global CSS for themes and links are accessed through classes and IDs.
+                                linked through nav bar. Alt text used for logo for easy access too. Also button based interaction, text-based feedback are
+                                used for accessibilty.
+                            </p>
+                        
+                        <h3 id="profileVal">Link to the validation page</h3> 
+                            <p><a target="_blank" href="validation_ST4.html#profile">validation_ST4.html</a></p> 
+
+                        <h3>Link to the page</h3>
+                            <p><a target="_blank" href="profile.html">profile.html</a></p>
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="sitemap">Sitemap Page <span>sitemap.html</span> </h2>
+                        <h3>Technical Description</h3>
+                            <p>In this page <code>svg</code> element used will create a graphical sitemap.It contains <code>lines</code> to show connections,
+                            rectangle shapes <code>rect</code> to show nodes of sitemap and <code>text</code> used for labels.<code>g</code> grouping elements and
+                            anchor tags <code>a</code> are used for wrapping SVG nodes make each node clickable using CSS and properly navigated.<code>tabindex="0"</code> enables keyboard navigation and improves accessibilty.
+                            SVG styled properly using calling classes.It has features like max-width,transform:scale() and lines will draw connections between pages which are linked accordingly.
+                            It uses CSS features like <code>stroke</code>. Nodes are also styled and <code>hover</code> effects will applied with <code>fill</code> and <code>text-color</code>.<code>a:focus .node rect</code> will shows
+                            outline when using keyboard navigation.So SVG nodes and lines are designed accordingly using correct dimensions to get final sitemap.<code>viewBox</code> defines the 
+                            co-ordinate system.<code>line class="line" x1="..." y1="..." ...</code> will draw hierarchial connections between nodes.
+                        
+                        </p> 
+
+                        <h3 id="sitemap-acc">Accessibility</h3>
+                            <p>This sitemap is linked through clickable svg nodes wrapped in anchor tags. SVG elements are navigated for keyboard users using tab key .
+
+                            </p>
+
+                        <h3 id="sitemapVal">Link to the validation page</h3> 
+                            <p><a target="_blank" href="validation_ST4.html#sitemap">validation_ST4.html</a></p> 
+
+                            
+                        <h3>Link to the page</h3>
+                            <p><a target="_blank" href="sitemap.html">sitemap.html</a></p>
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="content">Content Page - Plastic Pollution<span>content_ST4.html</span></h2>
+                        <h3>Technical Description</h3>
+                            <p> This content page use separate sections and accessed by classes. First creates a full-screen hero area and the background image is placed inside a separate <code>img</code> so it can be styled independently.
+                                Internal navigation allows users to jump directly to relevant sections accessed by IDs in nav Bar. Example,<code>div class="sub-navbar"</code>with hash links (#problem, #impact, etc.) Also 
+                                Each content block is a “card” and container with alternating image and text layout using paragraphs <code>p</code>. Unordered lists <code>ul</code>are also inside cards to add more content.
+                                <code>a href="#top" id="scroll-top-btn"</code> is a floating button that appears after scrolling, allowing quick return to the top. In CSS using width-100% and min-height:100vh along with display:flex;
+                                will not override the design and automatically adjust the page.<code>.card img:hover { transform: scale(1.02); }</code> will use to enlarge the image while hover adds interactivity.These basic concepts used described briefly.
+
+
+                            </p> 
+
+                        <h3  id="content-acc" >Accessibility</h3>
+                            <p> This page use semantic HTML elements for structure like header, nav, main, section, footer and global CSS is accessed for the color palette and themes.
+                              It uses links designed using classes and IDs for easy access and navigation. Alt text used for images for easy access too.
+                            
+                            </p>
+
+                        <h3 id="contentVal">Link to the validation page</h3> 
+                            <p><a target="_blank" href="validation_ST4.html#content">validation_ST4.html</a></p>  
+
+                            
+                        <h3>Link to the page</h3>
+                            <p><a target="_blank" href="content_ST4.html">content_ST4.html</a></p>
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="challenge"> Challenges and Lessons Learned</h2>
+                        <p> It's always a challenge when designing proper themes using global CSS for the web page. Understanding concepts on DOM manipulation and applying java script 
+                            to build user profile was a challenge. Getting proper dimensions and linking SVG nodes was a greater challenge too.
+                            Main lessons learned are it's really important to have team work, co-ordination when developing a web site.
+                            Also it's mandatory to maintain consistency of web pages. Learn about SVG and how user profiles work in day-to-day websites using DOM manipulation.
+                        </p> 
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="compliance"> Compliance</h2>
+                        <p>The developed pages follow many JANET web publishing guidelines, particularly in terms of semantic structure, navigation, and visual accessibility. Accessibility features such as keyboard navigation, alternative text, and clear layout design have been implemented effectively. However, some limitations exist, including the use of prompt-based input instead of accessible form elements and the absence of validation and data protection mechanisms.
+                             Therefore, while the pages demonstrate a solid understanding of JANET principles, further improvements would be required to achieve full compliance in a real-world context.</p>
+                        
+
+                        
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="group"> Group Meetings and Individual Contribution Log</h2>
+                        <p>Include a Group Meetings and Contribution Log that documents your engagement with group work.</p> 
+                        Requirements:
+                            <ul> 
+                                <li>A minimum of six (6) group meetings must be recorded.</li>
+                                <li>Each student must provide their own account of the meetings.</li>
+                                <li>The log must focus on individual contribution, not just group activity.</li>
+                            </ul>
+                            <p>Feel free to follow the example table structure below:</p>
+
+                    <table >
+                        
+                    <thead>
+                        <tr>
+                            <th colspan="6">Group Meetings and Contribution Log</th>
+                        </tr>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>15 Feb 2026</td>
+                            <td>Online</td>
+                            <td>Agree SDG topic on Ocean Conservation </td>
+                            <td>Yes</td>
+                            <td class="contribution">I agreed to take responsibility for the User Profile and Sitemap. </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>22 Feb 2026</td>
+                            <td>Online</td>
+                            <td>Review template design</td>
+                            <td>Yes</td>
+                            <td class="contribution">I agreed to the colour palette and footer wave design.</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>01 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Template Finalization</td>
+                            <td>Yes</td>
+                            <td class="contribution">I agreed to presented finalized template design shared amoung team members.</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>4</td>
+                            <td>02 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Receiving Content page topic </td>
+                            <td>Yes</td>
+                            <td class="contribution">I agreed to do the plastic pollution topic</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>08 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Page Design discussion</td>
+                            <td>Yes</td>
+                            <td class="contribution">I explained my profile page, sitemap and content page design idea.</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td>15 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Page Review</td>
+                            <td>Yes</td>
+                            <td class="contribution">I presented my profile page</td>
+                        </tr>
+
+                        <tr>
+                            <td>7</td>
+                            <td>21 Mar 2026</td>
+                            <td>Online</td>
+                            <td>PageEditor and Validator page</td>
+                            <td>Yes</td>
+                            <td class="contribution">I agreed to shared customized PageEditor and Validator design.</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>8</td>
+                            <td>22 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Page Review</td>
+                            <td>Yes</td>
+                            <td class="contribution">I presented my sitemap page.</td>
+                        </tr>
+
+                        <tr>
+                            <td>9</td>
+                            <td>28 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Page Review</td>
+                            <td>Yes</td>
+                            <td class="contribution">I presented my content page on plastic pollution.</td>
+                        </tr>
+
+                        <tr>
+                            <td>10</td>
+                            <td>29 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Finalization & Finding Erros</td>
+                            <td>Yes</td>
+                            <td class="contribution">Checking the finalized completed BlueHope WebSite ZIP file shared amoung all team members.</td>
+                        </tr>
+
+
+
+                    </tbody>
+
+                    </table>
+                                
+                    
+                            
+                        
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="ref">References</h2>
+                    <p>Provide links to resources you used following a consistent format.
+                        <ul class="ref">
+                        
+                            <li>Unsplash (2026) <i>Plastic pollution ocean photos.</i> Available at: 
+                            <a href="https://unsplash.com/s/photos/plastic-pollution-ocean">https://unsplash.com</a>
+                            (Last accessed: 27 March 2026).
+                            </li>
+                        </ul>
+                </section>
+
+                
+            </main>
+
+            <!-- Sidebar area -->
+            <aside>
+                <h3>Core pages developed:</h3>
+
+            
+                <ul class="top-level-ul">
+                    
+                    <li>Student 4</li>
+                    <ul>
+                            <li><a href="#profile">User Profile </a></li>
+                            <li><a href="#sitemap">Sitemap</a></li>
+                            <li><a href="#content">Content</a></li>
+                        </ul>
+                    
+                    <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+                    <li><a href="#compliance">Compliance</a></li>
+                    <li><a href="#group">Group Meetings and Individual Contribution Log</a></li>
+                    <li><a href="#ref">References</a></li>
+                </ul>
+            </aside>
+        </div>
+
+
+        
+        
+       
+        
+
+
+       
+
+       
+
+
+    
+
+
+    <!--Footer Section-->
+
+    <footer>
+        <a href="#top" id="scroll-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+        <!--Footer Wave Section-->
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+
+        <!--Footer Links-->
+        <div class="footer-links">
+
+            <!--Logo and About & etc-->
+            <div class="about">
+                <div class="logo">
+                    <div>
+                        <img src="img/logo.png" alt="BlueHope logo" >
+                    </div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated
+                        to
+                        Inspiring students to protect marine ecosystems through awareness, sustainable choices, and
+                        everyday action.</p>
+                </div>
+
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+
+            <!--Quick Links-->
+
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Take Action Links-->
+
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Edit The Edior Info put your Information-->
+
+            <div class="editor-info">
+
+                <!--Academic Links Like Editor Page, Validation Pages - Put your ones-->
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a href="pageEditor_ST4.html" target="_blank">PageEditor : Mr.Sudil Hesara</a></li>
+                            <li><a href="validation_ST4.html" target="_blank">W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST4.html" >Accessibility Statements</a></li>
+                            <li><a target="_blank"  href="pageEditor_ST4.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Social Media Links - Put Your ones here also -->
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Copy Right Statement-->
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span>  <span class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights
+                reserved.</p>
+        </div>
+
+    </footer>
+
+    
+    <script src="script.js"></script>
+    <!---->
+
+    <script></script>
+
+</body>
+
+</html>

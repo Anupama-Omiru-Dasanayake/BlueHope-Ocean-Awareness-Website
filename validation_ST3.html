@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Meta Tags-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title & Global Style sheet link-->
+
+    <title>W3C Validation</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!--Google Fonts - Logo Font - 'Playfair Display'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!--Google Fonts - Content Font - 'Google Sans'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+
+    <!--Font Awsome CDNJS Icon Link-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+    <style>
+        :root {
+
+            --dark-blue: rgb(2, 6, 24);
+            --transparent-dark-blue: rgba(38, 152, 204, 0);
+            --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+            --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+            --forth-transparent-dark-blue: rgba(2, 6, 24, 0.5);
+
+            --white: rgb(255, 255, 255);
+            --light-blue: rgb(38, 152, 204);
+            --light-light-blue: rgb(169, 214, 229);
+            --light-gray: rgb(49, 68, 82);
+
+            --border-radius: 35px;
+            --card-border-radius: 20px;
+
+            --main-text-color: var(--white);
+            --span-text-color: var(--light-blue);
+            --sub-text: var(--light-light-blue);
+
+            --hover: var(--light-blue);
+            --hover-transparent: var(--third-transparent-dark-blue);
+
+            --links: var(--light-blue);
+
+            --main-buttons: var(--dark-blue);
+            --sub-buttons: transparent;
+
+            --main-buttons-hover: var(--light-blue);
+            --sub-buttons-hover: var(--light-blue);
+
+            --border: var(--light-gray);
+            --button-border: var(--light-blue);
+
+
+        }
+
+
+        /* Add Your Page Specific Styles Here */
+
+        /* This is a Sample Styles You can Edite these styles as you want */
+        /* This is provided to get an idea */
+
+
+        .content-container {
+
+
+            width: 100%;
+            height: 2000px;
+
+            background-color: rgb(44, 3, 83);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .section-1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 800px;
+            width: 90%;
+            background-color: rgb(1, 53, 1);
+        }
+
+        .section-1-content-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgb(59, 1, 11);
+            width: 80%;
+            height: 300px;
+
+        }
+
+        .section-01-contents-01 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgb(1, 59, 59);
+            width: 90%;
+            height: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--Main Navivgation bar & Sub Navigation Bar-->
+
+    <header id="navigation-panel">
+        <nav>
+            <!--Main Navigation Bar-->
+            <div class="main-navbar">
+
+                <a class="logo-link" href="home.html">
+                    <div class="left">
+                        <div>
+                            <img src="img/logo.png" alt="BlueHope Logo">
+                        </div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!--Change The active tab as yours -->
+                <div class="mid">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li class="active"><a class="active" href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile"
+                                    class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Sub Navigation Bar - Internal Navigation-->
+
+            <div class="sub-navbar">
+                <!--Change the Interganl Navigation Bar Links & IDS According to your picked contents & Pages-->
+                <ul>
+                    <li><a href="validation_ST1.html">Student 1 - Anupama</a></li>
+                    <li><a href="validation_ST2.html">Student 2 - Janith</a></li>
+                    <li><a class="active" href="validation_ST3.html">Student 3 - Isindu</a></li>
+                    <li><a href="validation_ST4.html">Student 4 - Sudil</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+    </header>
+
+
+
+
+
+    <!--Dont remove this content-container div -->
+
+
+    <section class="stud">
+
+        <h1 class="section-title">W3C Validation</h1>
+
+        <h2>Isindu Liyanage - w2182372 - G7 - Student 03</h2>
+    </section>
+
+    <div class="page-editor-container">
+        <!-- Main content area -->
+        <main id="page-editor-main">
+
+            <!-- Update those first three sections for the pages you were responsible to implement -->
+
+            <section class="editor-card">
+                <h2 id="feedback">Feedback page Validation report</h2>
+                <h3>Reflection</h3>
+                <p>The Feedback page is structured using semantic HTML elements such as <code>&lt;form&gt;</code>,
+                    <code>&lt;label&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and
+                    <code>&lt;button&gt;</code> to collect user input efficiently. The <code>form</code> element groups
+                    all inputs and enables submission functionality.
+
+                    Each input field is paired with a <code>&lt;label&gt;</code> to improve usability and accessibility.
+                    Input types like <code>type="text"</code>, <code>type="email"</code>, and <code>textarea</code>
+                    ensure appropriate data collection.
+
+                    CSS styling is applied using utility classes such as <code>flex</code>, <code>gap</code>, and
+                    <code>px/py</code> for spacing and layout. Visual consistency is achieved using
+                    <code>rounded</code>, <code>border</code>, and <code>focus:ring</code> to highlight active fields.
+
+                    Validation is supported through HTML attributes like <code>required</code> and <code>pattern</code>,
+                    ensuring correct user input before submission. Overall, the design focuses on usability, clean
+                    layout, and user interaction.
+                </p>
+
+                <h3>Validation ScreenShot</h3>
+                <img class="validation-ss" src="img/ST3_Snapshots/valid-feedback.png" alt="">
+
+                <h3>Back to Page Editor page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                <p><a target="_blank" href="pageEditor_ST3.html#feedback">Page Editor page</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                <h3>Link to the page</h3>
+                <p><a target="_blank" href="feedback.html">Feedback Page</a></p>
+            </section>
+
+            <section class="editor-card">
+                <h2 id="team">Team Page validation report</h2>
+                <h3>Reflection</h3>
+                <p>The Team page uses semantic structure with <code>&lt;main&gt;</code> and <code>&lt;section&gt;</code>
+                    to organize content. A responsive grid layout is created using CSS classes like <code>grid</code>
+                    and <code>grid-cols-1 lg:grid-cols-4</code> to display team members.
+
+                    Each member is presented using a card layout with <code>&lt;div&gt;</code>,
+                    <code>&lt;img&gt;</code>, <code>&lt;h3&gt;</code>, and <code>&lt;p&gt;</code>. The
+                    <code>relative</code> and <code>absolute</code> positioning enables overlay effects, where
+                    additional details appear on hover.
+
+                    Styling includes <code>shadow</code>, <code>rounded</code>, and <code>text-color</code> classes to
+                    enhance visual hierarchy. Interactive effects are implemented using <code>group</code> and
+                    <code>hover</code> properties for smooth transitions.
+                </p>
+
+                <h3>Validation ScreenShot</h3>
+                <img class="validation-ss" src="img/ST3_Snapshots/valid-team.png" alt="">
+
+                <h3>Back to Page Editor page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                <p><a target="_blank" href="pageEditor_ST3.html#team">Page Editor page</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+
+                <h3>Link to the page</h3>
+                <p><a target="_blank" href="team.html">Team Page</a></p>
+            </section>
+
+            <section class="editor-card">
+                <h2 id="content">Content Page validation report</h2>
+                <h3>Description</h3>
+                <p>The Content page is built using structured semantic elements such as <code>&lt;section&gt;</code>,
+                    <code>&lt;aside&gt;</code>, and <code>&lt;nav&gt;</code> to separate main content and navigation.
+
+                    Responsive layouts are achieved using CSS Grid and Flexbox with classes like
+                    <code>grid-cols-1 lg:grid-cols-2</code> and <code>flex flex-col</code>. Sections are linked using
+                    <code>id</code> attributes and internal navigation via <code>&lt;a href="#section"&gt;</code>.
+
+                    Images use <code>object-cover</code> and fixed aspect ratios to maintain consistent display. Visual
+                    effects such as overlays and hover animations are created using <code>relative</code>,
+                    <code>absolute</code>, and <code>transition</code> properties.
+
+                    The page also includes structured data using <code>&lt;table&gt;</code> elements for presenting
+                    information clearly. A sticky sidebar (<code>sticky top-40</code>) improves navigation by keeping
+                    links visible during scrolling.
+                </p>
+
+                <h3>Validation ScreenShot</h3>
+                <img class="validation-ss" src="img/ST3_Snapshots/valid-content.png" alt="">
+
+                <h3>Back to Page Editor page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                <p><a target="_blank" href="pageEditor_ST3.html#content">Page Editor page</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+
+                <h3>Link to the page</h3>
+                <p><a target="_blank" href="content_ST3.html">Content Page</a></p>
+            </section>
+
+
+
+
+
+
+
+
+        </main>
+
+        <!-- Sidebar area -->
+        <aside>
+            <h3>Core pages developed:</h3>
+
+            <!-- Customize this to the role you undertook. Keep only the list items you were responsible to develop, delete the rest -->
+            <ul class="top-level-ul">
+                <!-- Keep only the list items you were responsible to develop, delete the rest and update the links to the corresponding markers -->
+                <li>Student 3 - Isindu Liyange</li>
+                <ul>
+                    <li><a href="#feedback">Feedback </a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#content">Content</a></li>
+                </ul>
+
+
+            </ul>
+        </aside>
+    </div>
+
+
+
+
+
+
+
+    <!--Footer Section-->
+
+    <footer>
+        <button id="scroll-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        <!--Footer Wave Section-->
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+
+
+        <!--Footer Links-->
+        <div class="footer-links">
+
+            <!--Logo and About & etc-->
+            <div class="about">
+                <div class="logo">
+                    <div>
+                        <img src="img/logo.png" alt="BlueHope logo">
+                    </div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated
+                        to
+                        Inspiring students to protect marine ecosystems through awareness, sustainable choices, and
+                        everyday action.</p>
+                </div>
+
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+
+            <!--Quick Links-->
+
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Take Action Links-->
+
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST1.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="content_ST4.html">Learn About Climate Impact</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Edit The Edior Info put your Information-->
+
+            <div class="editor-info">
+
+                <!--Academic Links Like Editor Page, Validation Pages - Put your ones-->
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a target="_blank" href="pageEditor_ST3.html">PageEditor : Isindu Liyanage</a></li>
+                            <li><a target="_blank" href="validation_ST3.html">W3C Validation</a></li>
+                            
+                            <li><a target="_blank"  href="pageEditor_ST3.html#compliance">Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Social Media Links - Put Your ones here also -->
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Copy Right Statement-->
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span> <span
+                    class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights
+                reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

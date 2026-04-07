@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* ── CSS Variables ── */
+        :root {
+            --dark-blue: rgb(2, 6, 24);
+            --transparent-dark-blue: rgba(38, 152, 204, 0);
+            --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+            --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+            --forth-transparent-dark-blue: rgba(2, 6, 24, 0.5);
+            --white: rgb(255, 255, 255);
+            --light-blue: rgb(38, 152, 204);
+            --transparent-light-blue: rgba(38, 152, 204, 0.3);
+            --light-light-blue: rgb(169, 214, 229);
+            --light-gray: rgb(49, 68, 82);
+            --border-radius: 35px;
+            --card-border-radius: 20px;
+            --main-text-color: var(--white);
+            --span-text-color: var(--light-blue);
+            --sub-text: var(--light-light-blue);
+            --hover: var(--light-blue);
+            --hover-transparent: var(--third-transparent-dark-blue);
+            --links: var(--light-blue);
+            --main-buttons: var(--dark-blue);
+            --sub-buttons: transparent;
+            --main-buttons-hover: var(--light-blue);
+            --sub-buttons-hover: var(--light-blue);
+            --border: var(--light-gray);
+            --button-border: var(--light-blue);
+
+            /* Theme colours (mirrors Tailwind config) */
+            --color-primary: #4DD0E1;
+            --color-on-primary: #000D1A;
+            --color-surface: #000D1A;
+            --color-background: #000D1A;
+            --color-on-surface: #e1e2e6;
+            --color-on-surface-variant: #c0c7d0;
+            --color-surface-container-low: rgba(0, 13, 26, 0.6);
+            --color-surface-container: rgba(255, 255, 255, 0.08);
+            --color-outline-variant: rgba(77, 208, 225, 0.3);
+            --color-error: #ffb4ab;
+            --border-radius-card: 20px;
+        }
+
+        /* ── Base Reset ── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background: radial-gradient(circle at top right, #001a33, #000D1A);
+            color: var(--color-on-surface);
+            min-height: 100vh;
+        }
+
+        /* ── Material Icons ── */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* ── Utilities ── */
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* ── Error messages ── */
+        .error-message {
+            font-size: 0.75rem;
+            color: #ffb4ab;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        input:invalid.touched,
+        textarea:invalid.touched {
+            border-color: #ffb4ab !important;
+        }
+
+        /* ── Ocean Card ── */
+        .ocean-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .ocean-card:hover {
+            border-color: #4DD0E1;
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-4px);
+        }
+
+        /* ── MAIN ── */
+        main {
+            padding-top: 12rem;
+            /* pt-48 */
+            padding-bottom: 4rem;
+            /* pb-16 */
+            padding-left: 2rem;
+            padding-right: 2rem;
+            max-width: 80rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+            /* space-y-24 */
+        }
+
+        @media (min-width: 768px) {
+            main {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /* ════════════════════════════════
+           SECTION: Program Directory
+        ════════════════════════════════ */
+        #directory {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .section-header {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-eyebrow {
+            color: var(--color-primary);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 3.75rem);
+            font-weight: 900;
+            font-family: 'Public Sans', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+
+        .sort-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .sort-inner {
+            position: relative;
+        }
+
+        .sort-select {
+            appearance: none;
+            background: var(--color-surface-container-low);
+            border: 1px solid var(--color-outline-variant);
+            border-radius: 0.5rem;
+            padding: 0.75rem 3rem 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            color: var(--color-on-surface);
+            min-width: 200px;
+            cursor: pointer;
+            font-family: inherit;
+            outline: none;
+            transition: box-shadow 0.2s;
+        }
+
+        .sort-select:focus {
+            box-shadow: 0 0 0 2px var(--color-primary);
+        }
+
+        .sort-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--color-primary);
+        }
+
+        /* Slider */
+        .slider-wrapper {
+            position: relative;
+        }
+
+        .slider-wrapper:hover .slider-nav {
+            opacity: 1;
+        }
+
+        .slider-track {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding-bottom: 2rem;
+            padding-right: 2rem;
+            scroll-snap-type: x mandatory;
+        }
+
+        /* Card */
+        .program-card {
+            min-width: 320px;
+            scroll-snap-align: start;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .program-card {
+                min-width: 400px;
+            }
+        }
+
+        .card-img-wrap {
+            height: 14rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .program-card:hover .card-img-wrap img {
+            transform: scale(1.1);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(77, 208, 225, 0.4);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.625rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: 'Public Sans', sans-serif;
+            color: #fff;
+        }
+
+        .card-desc {
+            color: var(--color-on-surface-variant);
+            font-size: 0.875rem;
+            line-height: 1.625;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+            padding-top: 0.5rem;
+        }
+
+        .btn-outline-primary {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-outline-primary:hover {
+            background: rgba(77, 208, 225, 0.1);
+        }
+
+        .btn-primary {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background: var(--color-primary);
+            color: var(--color-on-primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: none;
+            cursor: pointer;
+            transition: filter 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.1);
+        }
+
+        /* Slider Nav arrows */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 10;
+        }
+
+        .slider-nav-left {
+            left: -1rem;
+        }
+
+        .slider-nav-right {
+            right: -1rem;
+        }
+
+        .slider-nav button {
+            padding: 0.75rem;
+            border-radius: 9999px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(77, 208, 225, 0.3);
+            color: var(--color-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ════════════════════════════════
+           SECTION: Reviews
+        ════════════════════════════════ */
+        #reviews {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding: 2rem;
+            border-radius: var(--border-radius-card);
+            border: 1px solid rgba(77, 208, 225, 0.1);
+        }
+
+        @media (min-width: 1024px) {
+            #reviews {
+                grid-template-columns: 4fr 8fr;
+                padding: 3rem;
+            }
+        }
+
+        /* Left col */
+        .reviews-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        @media (min-width: 1024px) {
+            .reviews-left {
+                text-align: left;
+            }
+        }
+
+        .impact-badge {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            background: rgba(77, 208, 225, 0.1);
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .score-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .score-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .score-row {
+                justify-content: flex-start;
+            }
+        }
+
+        .score-number {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.05em;
+            line-height: 1;
+        }
+
+        .score-denom {
+            font-size: 1.5rem;
+            color: var(--color-on-surface-variant);
+        }
+
+        .score-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .score-count {
+            font-size: 0.875rem;
+            color: var(--color-on-surface-variant);
+        }
+
+        .stars-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+            color: var(--color-primary);
+        }
+
+        @media (min-width: 1024px) {
+            .stars-row {
+                justify-content: flex-start;
+            }
+        }
+
+        .btn-all-reviews {
+            margin-top: 1rem;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+            align-self: center;
+        }
+
+        @media (min-width: 1024px) {
+            .btn-all-reviews {
+                align-self: flex-start;
+            }
+        }
+
+        .btn-all-reviews:hover {
+            background: rgba(77, 208, 225, 0.1);
+        }
+
+        /* Right col - review cards grid */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .review-card-wide {
+            grid-column: 1 / -1;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .review-title {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #fff;
+        }
+
+        .review-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .reviewer-avatar {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            background: rgba(77, 208, 225, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.625rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .reviewer-name {
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: var(--color-on-surface-variant);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .review-score {
+            color: var(--color-primary);
+            font-weight: 900;
+        }
+
+        .review-text {
+            font-size: 0.875rem;
+            color: var(--color-on-surface-variant);
+            line-height: 1.625;
+        }
+
+        .review-link {
+            color: var(--color-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .review-link:hover {
+            text-decoration: underline;
+        }
+
+        .review-link .material-symbols-outlined {
+            font-size: 0.75rem;
+        }
+
+        /* ════════════════════════════════
+           SECTION: Feedback Form
+        ════════════════════════════════ */
+        #feedback {
+            max-width: 56rem;
+            margin-left: 10%;
+            margin-right: 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .feedback-header {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .connect-badge {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            background: rgba(77, 208, 225, 0.1);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .feedback-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            font-family: 'Public Sans', sans-serif;
+            letter-spacing: -0.025em;
+            color: #fff;
+            text-align: center;
+        }
+
+        .feedback-subtitle {
+            color: var(--color-on-surface-variant);
+            text-align: center;
+        }
+
+        /* Success message */
+        #successMessage {
+            display: none;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            font-weight: 700;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        #successMessage.visible {
+            display: block;
+        }
+
+        .success-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .success-inner .material-symbols-outlined {
+            font-size: 3.75rem;
+        }
+
+        .success-inner p {
+            font-size: 1.25rem;
+        }
+
+        /* Form layout */
+        #feedbackForm {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .form-sections {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 2rem;
+            border-radius: var(--border-radius-card);
+            position: relative;
+            border: none;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+        }
+
+        legend {
+            font-size: 1.125rem;
+            font-weight: 900;
+            font-family: 'Public Sans', sans-serif;
+            padding: 0.5rem 1.5rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            background: var(--color-surface);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+            border-radius: 9999px;
+        }
+
+        .fields-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .fields-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .field-label {
+            font-size: 0.625rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-primary);
+            padding: 0 0.25rem;
+        }
+
+        .field-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.625rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-primary);
+            padding: 0 0.25rem;
+        }
+
+        .char-counter {
+            font-family: monospace;
+            color: var(--color-primary);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(192, 199, 208, 0.3);
+        }
+
+        input:focus,
+        textarea:focus {
+            box-shadow: 0 0 0 2px var(--color-primary);
+            border-color: transparent;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .select-wrap {
+            position: relative;
+        }
+
+        select {
+            width: 100%;
+            appearance: none;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem 3rem 1rem 1.25rem;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.875rem;
+            outline: none;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+
+        select:focus {
+            box-shadow: 0 0 0 2px var(--color-primary);
+        }
+
+        select option {
+            background: var(--color-surface);
+        }
+
+        .select-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--color-primary);
+        }
+
+        .field-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Submit area */
+        .submit-area {
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn-submit {
+            position: relative;
+            padding: 1.25rem 4rem;
+            background: var(--color-primary);
+            color: var(--color-on-primary);
+            border-radius: 9999px;
+            font-weight: 900;
+            font-size: 1.25rem;
+            letter-spacing: -0.025em;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 1.5rem 3rem rgba(77, 208, 225, 0.4);
+            transition: filter 0.2s, transform 0.1s;
+            overflow: hidden;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-submit:hover {
+            filter: brightness(1.1);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.95);
+        }
+
+        .mandatory-note {
+            font-size: 0.625rem;
+            color: var(--color-on-surface-variant);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-style: italic;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- Navigation (unchanged - relies on style.css) -->
+    <header id="navigation-panel">
+        <nav>
+            <div class="main-navbar">
+                <a class="logo-link" href="splash.html">
+                    <div class="left">
+                        <div><img src="img/logo.png" alt="BlueHope Logo"></div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="mid">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li class="active"><a class="active" href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile"
+                                    class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sub-navbar">
+                <ul>
+                    <li><a href="#directory">Program Directory</a></li>
+                    <li><a href="#reviews">Recent Reviews</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ── Program Directory ── -->
+        <section id="directory">
+            <div class="section-header">
+                <span class="section-eyebrow">Global Initiatives</span>
+                <h2 class="section-title">Program Directory</h2>
+                <br><br>
+                <div class="sort-wrapper">
+                    <div class="sort-inner">
+                        <select class="sort-select">
+                            <option>Most Popular</option>
+                            <option>Nearest</option>
+                            <option>Student-friendly</option>
+                            <option>Recently Added</option>
+                        </select>
+                        <span class="material-symbols-outlined sort-icon">expand_more</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-wrapper">
+                <div class="slider-track no-scrollbar" id="program-slider">
+
+                    <!-- Card 1 -->
+                    <div class="ocean-card program-card">
+                        <div class="card-img-wrap">
+                            <img alt="coral reef" src="img/feedback-card-1.png">
+                            <div class="card-badge">Coral Restoration</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Reef Revive Pacific</h3>
+                            <p class="card-desc">Deploying thermal-resistant coral nurseries to combat bleaching events
+                                in the South Pacific.</p>
+                            <div class="card-actions">
+                                <button class="btn-outline-primary">View Project</button>
+                                <button class="btn-primary">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="ocean-card program-card">
+                        <div class="card-img-wrap">
+                            <img alt="whale" src="img/feedback-card-2.png">
+                            <div class="card-badge">Cetacean Safety</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Blue Path Corridors</h3>
+                            <p class="card-desc">Mapping migratory routes to establish acoustic-quiet zones and vessel
+                                speed limits.</p>
+                            <div class="card-actions">
+                                <button class="btn-outline-primary">View Project</button>
+                                <button class="btn-primary">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="ocean-card program-card">
+                        <div class="card-img-wrap">
+                            <img alt="mangroves" src="img/feedback-card-3.png">
+                            <div class="card-badge">Blue Carbon</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Mangrove Shield</h3>
+                            <p class="card-desc">Reforestation project focusing on carbon sequestration and natural
+                                storm barriers.</p>
+                            <div class="card-actions">
+                                <button class="btn-outline-primary">View Project</button>
+                                <button class="btn-primary">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="ocean-card program-card">
+                        <div class="card-img-wrap">
+                            <img alt="plastic ocean" src="img/feedback-card-4.png">
+                            <div class="card-badge">Waste Control</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Zero Plastic Tide</h3>
+                            <p class="card-desc">Implementing advanced river interceptors to block plastic before it
+                                reaches the ocean.</p>
+                            <div class="card-actions">
+                                <button class="btn-outline-primary">View Project</button>
+                                <button class="btn-primary">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Nav Arrows -->
+                <div class="slider-nav slider-nav-left">
+                    <button onclick="document.getElementById('program-slider').scrollBy({left:-400,behavior:'smooth'})">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                </div>
+                <div class="slider-nav slider-nav-right">
+                    <button onclick="document.getElementById('program-slider').scrollBy({left:400,behavior:'smooth'})">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Ratings & Reviews ── -->
+        <section class="glass-effect" id="reviews">
+
+            <div class="reviews-left">
+                <div><span class="impact-badge">Global Impact Score</span></div>
+                <div class="score-block">
+                    <div class="score-row">
+                        <span class="score-number">9.4</span>
+                        <span class="score-denom">/ 10</span>
+                    </div>
+                    <span class="score-label">Exceptional</span>
+                    <span class="score-count">1,246 verified reviews</span>
+                </div>
+                <div class="stars-row">
+                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 0.5;">star_half</span>
+                </div>
+                <button class="btn-all-reviews">See all 1,240 reviews</button>
+            </div>
+
+            <div class="reviews-grid">
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div>
+                            <div class="review-title">10/10 Excellent</div>
+                            <div class="review-meta">
+                                <div class="reviewer-avatar">EG</div>
+                                <span class="reviewer-name">Eshan Gunasinghe &bull; 2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="review-score">10.0</div>
+                    </div>
+                    <p class="review-text">"The transparency of the data coming from the Blue Path Corridors is
+                        revolutionary. Finally, a project that values science."</p>
+                    <a class="review-link" href="#">See more <span
+                            class="material-symbols-outlined">arrow_forward</span></a>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div>
+                            <div class="review-title">9/10 Incredible</div>
+                            <div class="review-meta">
+                                <div class="reviewer-avatar">MR</div>
+                                <span class="reviewer-name">Marcus Rushford &bull; 1 week ago</span>
+                            </div>
+                        </div>
+                        <div class="review-score">9.0</div>
+                    </div>
+                    <p class="review-text">"Applied for the Mangrove Shield program. The onboarding process was seamless
+                        and the educational material is world class."</p>
+                    <a class="review-link" href="#">See more <span
+                            class="material-symbols-outlined">arrow_forward</span></a>
+                </div>
+
+                <div class="review-card review-card-wide">
+                    <div class="review-header">
+                        <div>
+                            <div class="review-title">10/10 Life Changing</div>
+                            <div class="review-meta">
+                                <div class="reviewer-avatar">RG</div>
+                                <span class="reviewer-name">Richard Jayawardene &bull; 3 weeks ago</span>
+                            </div>
+                        </div>
+                        <div class="review-score">10.0</div>
+                    </div>
+                    <p class="review-text">"Seeing the direct impact reports on the Pacific Reef Restoration gives me
+                        hope that we can actually turn the tide. Truly professional organization."</p>
+                    <a class="review-link" href="#">See more <span
+                            class="material-symbols-outlined">arrow_forward</span></a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── Feedback Form ── -->
+        <section id="feedback">
+            <div class="feedback-header">
+                <div><span class="connect-badge">Connect with us</span></div>
+                <h2 class="feedback-title">Voices of the Ocean</h2>
+                <p class="feedback-subtitle">Your feedback fuels our conservation efforts. Let us know how we're doing
+                    or share your ideas.</p>
+            </div>
+
+            <div id="successMessage">
+                <div class="success-inner">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <p>Thank you! Your message has been transmitted.</p>
+                </div>
+            </div>
+
+            <form id="feedbackForm" novalidate>
+                <div class="form-sections">
+
+                    <!-- Personal Details -->
+                    <fieldset>
+                        <legend>Personal Details</legend>
+                        <div class="fields-grid">
+                            <div class="field">
+                                <label class="field-label" for="name">Full Name *</label>
+                                <input id="name" name="name" type="text" placeholder="e.g. Isindu Liyanage" required>
+                                <p class="error-message" id="nameError">Please enter your full name.</p>
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="email">Email Address *</label>
+                                <input id="email" name="email" type="email" placeholder="example@gmail.com" required>
+                                <p class="error-message" id="emailError">Please enter a valid email address.</p>
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="phone">Telephone *</label>
+                                <input id="phone" name="phone" type="tel" placeholder="+(XX) 0000-00000" required>
+                                <p class="error-message" id="phoneError">Please enter your telephone number.</p>
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="address">Physical Address *</label>
+                                <input id="address" name="address" type="text" placeholder="221B Baker Street, London"
+                                    required>
+                                <p class="error-message" id="addressError">Please enter your physical address.</p>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Feedback Details -->
+                    <fieldset>
+                        <legend>Feedback Details</legend>
+                        <div class="fields-grid">
+                            <div class="field">
+                                <label class="field-label">How did you hear about us?</label>
+                                <div class="select-wrap">
+                                    <select>
+                                        <option>Social Media</option>
+                                        <option>Environmental Conference</option>
+                                        <option>Word of Mouth</option>
+                                        <option>Scientific Publication</option>
+                                        <option>Other</option>
+                                    </select>
+                                    <span class="material-symbols-outlined select-icon">expand_more</span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="dateField">Today's Date</label>
+                                <input id="dateField" type="date" value="2026-03-30" required>
+                            </div>
+                            <div class="field field-full">
+                                <div class="field-label-row">
+                                    <span>Your Message *</span>
+                                    <span class="char-counter" id="charCounter">0 / 500</span>
+                                </div>
+                                <textarea id="messageBox" name="message" rows="6" maxlength="500"
+                                    placeholder="Share your thoughts..." required></textarea>
+                                <p class="error-message" id="messageError">Please enter your message (min 10
+                                    characters).</p>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                <div class="submit-area">
+                    <button class="btn-submit" type="submit">
+                        Send Feedback
+                        <span class="material-symbols-outlined">send</span>
+                    </button>
+                    <p class="mandatory-note">Fields marked with * are mandatory.</p>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer (unchanged - relies on style.css) -->
+    <footer>
+        <a href="#top" id="scroll-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        <div class="footer-links">
+            <div class="about">
+                <div class="logo">
+                    <div><img src="img/logo.png" alt="BlueHope logo"></div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated to inspiring students to protect
+                        marine ecosystems through awareness, sustainable choices, and everyday action.</p>
+                </div>
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="editor-info">
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a href="pageEditor_ST3.html" target="_blank">PageEditor : Isindu Liyanage</a></li>
+                            <li><a href="validation_ST3.html" target="_blank">W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST3.html#feedback-acc" >Accessibility Statements</a></li>
+                            <li><a target="_blank"  href="pageEditor_ST3.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span>
+                <span class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const form = document.getElementById('feedbackForm');
+        const successMsg = document.getElementById('successMessage');
+        const messageBox = document.getElementById('messageBox');
+        const charCounter = document.getElementById('charCounter');
+
+        const fields = {
+            name: { input: document.getElementById('name'), error: document.getElementById('nameError') },
+            email: { input: document.getElementById('email'), error: document.getElementById('emailError') },
+            phone: { input: document.getElementById('phone'), error: document.getElementById('phoneError') },
+            address: { input: document.getElementById('address'), error: document.getElementById('addressError') },
+            message: { input: messageBox, error: document.getElementById('messageError') }
+        };
+
+        // Live character counter
+        messageBox.addEventListener('input', () => {
+            const count = messageBox.value.length;
+            charCounter.textContent = count + ' / 500';
+            charCounter.style.color = count >= 450 ? '#ffb4ab' : 'var(--color-primary)';
+        });
+
+        // Validate a single field
+        const validateField = (id) => {
+            const field = fields[id];
+            const isValid = field.input.checkValidity() && (id !== 'message' || field.input.value.length >= 10);
+            if (!isValid) {
+                field.input.classList.add('touched');
+                field.error.style.display = 'block';
+                return false;
+            } else {
+                field.input.classList.remove('touched');
+                field.error.style.display = 'none';
+                return true;
+            }
+        };
+
+        // Blur + live re-validate
+        Object.keys(fields).forEach(key => {
+            fields[key].input.addEventListener('blur', () => validateField(key));
+            fields[key].input.addEventListener('input', () => {
+                if (fields[key].input.classList.contains('touched')) validateField(key);
+            });
+        });
+
+        // Submit
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isFormValid = true;
+            Object.keys(fields).forEach(key => { if (!validateField(key)) isFormValid = false; });
+
+            if (isFormValid) {
+                form.style.display = 'none';
+                successMsg.classList.add('visible');
+                form.reset();
+                charCounter.textContent = '0 / 500';
+                window.scrollTo({ top: successMsg.offsetTop - 150, behavior: 'smooth' });
+            } else {
+                const firstInvalid = Object.keys(fields).find(key => {
+                    const f = fields[key];
+                    return !(f.input.checkValidity() && (key !== 'message' || f.input.value.length >= 10));
+                });
+                if (firstInvalid) fields[firstInvalid].input.focus();
+            }
+        });
+
+        // Smooth scroll for internal nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) window.scrollTo({ top: target.offsetTop - 150, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+
+</html>

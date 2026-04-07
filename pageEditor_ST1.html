@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Meta Tags-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title & Global Style sheet link-->
+
+    <title>PageEditor</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!--Google Fonts - Logo Font - 'Playfair Display'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!--Google Fonts - Content Font - 'Google Sans'--> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+    <!--Font Awsome CDNJS Icon Link-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+
+
+    <style>
+
+
+        :root {
+
+    --dark-blue: rgb(2, 6, 24);
+    --transparent-dark-blue: rgba(38, 152, 204, 0);
+    --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+    --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+    --forth-transparent-dark-blue: rgba(2, 6, 24,0.5);
+
+    --white: rgb(255, 255, 255);
+    --light-blue: rgb(38, 152, 204);
+    --light-light-blue: rgb(169, 214, 229);
+    --light-gray: rgb(49, 68, 82);
+
+    --border-radius: 35px;
+    --card-border-radius: 20px;
+
+    --main-text-color: var(--white);
+    --span-text-color: var(--light-blue);
+    --sub-text: var(--light-light-blue);
+
+    --hover: var(--light-blue);
+    --hover-transparent: var(--third-transparent-dark-blue);
+    
+    --links: var(--light-blue);
+
+    --main-buttons: var(--dark-blue);
+    --sub-buttons: transparent;
+
+    --main-buttons-hover: var(--light-blue);
+    --sub-buttons-hover: var(--light-blue);
+
+    --border: var(--light-gray);
+    --button-border: var(--light-blue);
+    
+
+}
+
+    
+
+
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!--Main Navivgation bar & Sub Navigation Bar-->
+
+    <header id="navigation-panel">
+        <nav>
+            <!--Main Navigation Bar-->
+            <div class="main-navbar">
+
+                <a class="logo-link" href="home.html">
+                    <div class="left">
+                        <div>
+                            <img src="img/logo.png" alt="BlueHope Logo">
+                        </div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!--Change The active tab as yours -->
+                <div class="mid">
+                    <ul>
+                        <li ><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li class="active"><a class="active"  href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile" class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Sub Navigation Bar - Internal Navigation-->
+
+            <div class="sub-navbar">
+                <!--Change the Interganl Navigation Bar Links & IDS According to your picked contents & Pages-->
+                <ul>
+                    <li><a class="active" href="pageEditor_ST1.html">Student 1 - Anupama</a></li>
+                    <li><a href="pageEditor_ST2.html">Student 2 - Janith</a></li>
+                    <li><a href="pageEditor_ST3.html">Student 3 - Isindu</a></li>
+                    <li><a href="pageEditor_ST4.html">Student 4 - Sudil</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+    </header>
+
+
+    
+    
+
+        <!--Dont remove this content-container div -->
+        
+
+        <section class="stud">
+            
+            <h1 class="section-title">Page Editor</h1>
+            
+            <h2>Anupama Omiru - w2182056 - G7 - Student 01</h2>
+        </section>
+
+        <div class="page-editor-container">
+            <!-- Main content area -->
+            <main id="page-editor-main">
+
+                <!-- Update those first three sections for the pages you were responsible to implement -->
+
+                <section class="editor-card">
+                    <h2 id="home">Home page <span>home.html</span> </h2>
+
+
+                        <h3>Technical Description</h3>
+
+                            <h4>Template</h4>
+
+                                <p>The template includes a global navigation bar, footer section, global java script file, and a global stylesheet, These files are reused by all other team members when creating their pages
+                                    to maintain a consistant theme across the website. 
+                                </p>
+                                <p>The navigation bar was implemented inside the <code>&lt;header&gt;</code> element with a <code>&lt;nav&gt;</code> element to organize the navigation links to the main pages of the BlueHope 
+                                    web page such as Home, Gallery, Impact Simulator, Feedback, Team, and Sitemap, The navigation bar has threee parts logo part - left-side, mid links part - mid, and the profile part - right-side. 
+                                    These parts are separated using <code>&lt;div&gt;</code> elements and layout is created using css flexbox <code>display: flex;</code>. The navigation links were structured using <code>&lt;ul&gt;</code>
+                                    and <code>&lt;li&gt;</code> elements to create a clear organized navigation bar.   header is set to positioned as fixed using css <code>position: fixed;</code> property to make the navigation bar visible all the time even when scrolling at the top of the page.</p>
+
+                                <p>The footer section includes a wave animation implemented using CSS <code>@keyframes</code> together with the <code>background-position-x</code> property. 
+                                    A repeating customized wave images with values plus and minus for the background-position-x is used so the animation moves smoothely as a water wave and create a realistic wave effect. 
+                                    The footer section is also structured using css flexbox. The footer includes a small description about the BlueHope website, quick links, take action links, editor information links, 
+                                    and social media links. To make the structure of the footer links css <code>flex-direction: column;</code> to make the elements display as columns, <code>justify-content: space-between</code> to get space between elements verticaly and <code>align-items: flex-start</code> to make the elements start from the begining horizontaly are used
+                                    if the <code>flex-direction: row;</code>(default) justify-content property works horizontaly and align-items property works verticaly.</p>
+
+                                <p>The <code>style.css</code> global stylesheet was created to store shared styles sch as color variables, header and and footer styles, and shared components like buttons, cards, and intext-links. CSS variables declared using the <code>:root</code>
+                                    selector to maintain a consistant color theme and to easily reuse colors across different CSS properties.</p>
+
+                                <p>Global JavaScript is linked using external JavaScript file <code>(script.js)</code>. this script is used to control the "go to top" button, when the page is not scrolled down the button remain hidden,
+                                    when the use scrolls down beyond certain distance, JavaScript make the button visible. This is done by using <code>window.addEventListener("scroll")</code>, which listens for scroll events on the page.
+                                    When the condition is met the button becomes visible by modifying its CSS <code>opacity</code> and <code>z-index</code> properties. The script also include another scroll event listener to slightly reposition the header by going bit up when scrolling.
+                                    This was done by modifying css header <code>top</code> property.</p>
+
+                                <p>Additionaly, template header include external links such as Google Fonts and Font Awsome icons for icons used in header and the footer.</p>
+                                    
+
+                            <h4>Home</h4>
+                                <p>Home page include mutiple sections such as hero section with background video and two buttons, missioon statement section, why ocean matter section with showing a description when hovering over the cards, ocean facts section showing known facts about the ocean, Threats to marine life section with four main contents linking to each content page, and lastly a small preview section for the gallery page with a linked button to the gallery page. 
+                                    The hero section uses the <code>&lt;video&gt;</code> element with attributes such as <code>autoplay</code> to play the video automaticaly, attribute <code>loop</code> to loops the video over and over again infinitly and attribute <code>muted</code> to mute the video sound. Heading title and paragraphs with buttons as placed above the video using css positioning setting the video to <code>position: absolute;</code> and <code>object-fit: cover;</code> property is making sure the video fills the entire section while maintaining width and height aspect ratio. 
+                                    
+                                    
+                                </p>
+                                <p>The HTML structure of the home page was built using key structural elements such as <code>&lt;section&gt;</code> and <code>&lt;div&gt;</code> to organize the layout into clear sections. For layout design, the <code>display: flex;</code>
+                                    property was used together with other Flexbox properties. The <code>flex-direction</code> property controls whether elements are arranged in rows or columns The <code>align-items</code> property controls the cross axis alignment of the elements, while <code>justify-content</code> controls the main axis alignment.
+                                    values used include <code>center</code>, <code>space-between</code>, <code>space-around</code>, and <code>space-evenly</code>. The <code>flex-wrap</code> property was also used to allow elemnts to wrap when the available spaxe becomes smaller.</p>
+
+                                <p>Other CSS properties such as <code>transition</code>, <code>overflow</code>, <code>backdrop-filter</code>, <code>border-radius</code> and <code>box-shadow</code> were also used to improve the visual appearance and create smooth hover effects when user hover over elements on the page.</p>
+
+
+                            
+                        
+                        <h3 id="home-acc">Accessibility</h3>
+                            <p>HTML Elements such as <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code> were used to create a clear page structure that can be understood by screen readers. Images also include with <code>alt</code> attributes to help users who cannot see the images undertand the what is the image is about
+                                Clear navigation links and good color match between text and background were also used to improve readability of the users. Images used in sections such as <i>Why Oceans Matter</i> and <i>Threats to Marine Life</i> include descriptive <code>alt</code> attributes so screen readers can describe the visual content to users who cannot see the images. Interactive elements such as buttons and links use clear text labels like Learn More and Explore More to help users understand their purpose. Visual feedback is provided through hover effects and active link styles so users can easily recognize interactive elements such as buttons and cards. 
+                                The page layout also uses flexible design techniques such as <code>display: flex;</code> and <code>flex-wrap;</code> so the content adjusts properly on different screen sizes and remains readable on smaller devices.</p>
+                        
+                        <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                            <p><a target="_blank" href="validation_ST1.html#home">Home Page Validation - home.html <i class="fa-solid fa-up-right-from-square"></i></a></p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                        <h3>Link to the page</h3>
+                            <p><a target="_blank" href="home.html">Home Page - BlueHope <i class="fa-solid fa-up-right-from-square"></i></a></p>
+
+
+
+                </section>
+
+
+
+
+                <section class="editor-card">
+                    <h2 id="gallery">Gallery Page <span>gallery.html</span> </h2>
+                        <h3>Technical Description</h3>
+                            <p>The gallery page was build within the template's <code>&lt;main&gt;</code> HTML tag. The gallery images are organized inside a container using <code>&lt;div&gt;</code> elements and each image item is placed inside a <code>&lt;div class="img"&gt;</code> element. 
+                                The <code>data-name</code> attribute is used to categorize images such as marine life, coral reefs, and ocean threats so they can filtered using JavaScript listeners when user click the Specific buttons. Popup contents are hidden by setting css <code>display: none;</code> display property to none and positioned centered in the screen as <code>position: fixed;</code>
+                                <code>display: flex;</code> css flexbox is used to create the structure of the popup content.
+                            </p> 
+                            <p>When the filter button is clicked Java Script reads the selected catogory and compare it with the <code>data-name</code> value of each image element. The script selects elements using methods such as <code>documnet.querySelector()</code> and <code>documnet.querySelectorAll()</code>
+                                and controls the visibility of the elements by adding or removing CSS classes using <code>classList.add()</code> and <code>classList.remove()</code>. To filter the images into different catogories first script selects all filter buttons using 
+                                <code>document.querySelectorAll(".filter-buttons button")</code> and all gallery image containers using <code>document.querySelectorAll(".gallery-images .img")</code>, Thesse methods return list of DOM elements which are stores in variables <code>filterButtons</code> and <code>filterableImages</code>
+                                a function named <code>filterImages</code> is created to control the filtering process. When a user  clicks a filter button, an event listerner attached using <code>addEventListener("click")</code> calls this function.  The event object <code>e</code> is used to identigy which button was clicked using <code>e.target</code>
+                                . The code firtst of all remove the CSS filter-active class <code>classList.remove()</code> from the currently active button and add it to the clicked button using <code>classList.add()</code> . The function then loop over all galley image containers using <code>forEach()</code> loop, each image container is hidden by additing a CSS class <code>hide</code>,
+                                which use CSS <code>display: none</code> property to remove the images from the view. Then check the condition using the <code>dataset.name</code> property with the category of the selected filter button <code>e.target.dataset.name</code>. if the button category and the images catogory match, of if the selected button dataset category is "all" the hide class is removed using <code>classList.remove()</code> making the image container visiable again.</p>
+
+
+                            <p>For the popup windows, The script first selects all the popup open buttons and popup containers using DOM selction methods such as <code>document.querySelectorAll()</code>. These selection return a list of elemnts which are then processed using <code>forEach()</code> loop.
+                                Inside the loop, an event listener is checking each button using <code>addEventListener("click")</code>, when a user clicks a Read More button, the fucntion excutes and uses the <code>index</code> value provided by the <code>forEach()</code> loop.
+                                The index represent the position of the current button in the list, The popup elements are stored in the same order as the buttons the script code can identify the correct popup using <code>popup[index]</code>">.
+                                The code <code>classList("open")</code> is then used to add the <code>open</code> css class to the corresponding popup container, which changes its visibility by changing CSS properties such as <code>display</code> and <code>z-index</code>.</p>
+                                <p>When Closing the opened popup similar way is used. Close buttons are selected using <code>querySelectorAll()</code> and processed using <code>forEach()</code>. When the close button is clicked, <code>classList.remove("open")</code> removes the CSS class from the corresponding popup container,
+                                hiding it again.</p>
+
+                        <h3 id="gallery-acc">Accessibility</h3>
+                            <p>All gallery images include descriptive <code>alt</code> attributes so users who rely on screen readers can understand what each image represents. The filter buttons use clear text labels such as <i> Marine Life</i>, <i>Coral Reefs</i>, and <i>Ocean Threats</i>, helping users easily understand and navigate between categories. 
+                                Visual different look is provided through hover effects and active button highlighting so users can clearly see which filter is currently selected. The gallery layout was implemented using flexible design techniques so images wrap and adjust properly on different screen sizes, ensuring the content remains readable and usable across different devices
+                                Small image description is provided when user hover over the images. and in the popup window user can select the font style and the background color theme based on their preference giving  the users more friendly reading environment.</p>
+
+                        <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                            <p><a target="_blank" href="validation_ST1.html#gallery">Gallery Page Validation - gallery.html <i class="fa-solid fa-up-right-from-square"></i></a></p> 
+
+                            
+                        <h3>Link to the page</h3>
+                            <p><a target="_blank" href="gallery.html">Gallery Page - BlueHope <i class="fa-solid fa-up-right-from-square"></i></a></p>
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="content">Content Page - Climate Change <span>content_ST1.html</span> </h2>
+                        <h3>Technical Description</h3>
+                            <p>The content page was implemented using structured HTML elements and CSS styling to present information about Climate Change and its impact on oceans. The page's content is organized using multiple <code>&lt;section&gt;</code> elements with unique <code>id</code>
+                            attributes such as  <i>introduction</i>, <i>warming</i>, <i>bleaching</i>, <i>statistics</i>, and <i>sea-levels</i>. These IDs allow internal navigation links in the sub navigation bar to scroll directly to the corresponding sections of the page.</p>
+                            <p>hero section was created using a <code>&lt;section class="hero"&gt;</code> element with a background image and large text to introduce the topic of the page.CSS properties such as <code>position: relative;</code>, <code>height: 100vh</code> and <code>display: flex;</code> css flexbox is used to center the text and make a full screen hero. image position is set to <code>position: absolute;</code> to make the as the hero background.
+                            A scroll down indicator link was added using an anchor tag <code>&lt;a href="#introduction"&gt;</code> to direct the user to the main content.</p> 
+                            <p>The main information on the page use a card based layout where images and text are inside <code>&lt;div class="content"&gt;</code> containers together with <code>&lt;img&gt;</code> elements. CSS Flexbox was used to control the layout of these sections using properties such as 
+                            <code>display: flex;</code>, <code>flex-direction</code>, <code>align-items</code> and <code>justify-content</code> so the content is aligned properly and remains vidually balanced. The main card styles are accessed from the global style sheet.</p>
+                            <p>For statistical information is used mini card components created with <code>&lt;div class="mini-card"&gt;</code> elements. These cards contain percentage indicators and short descriptions. Which are styles using CSS properties such as <code>border-radius</code>
+                            <code>box-shadow</code>, <code>::after</code> and <code>transition</code> to create interactive hover effects. Additional styling properties  such as <code>transform: scale();</code>, <code>:hover</code>, <code>:hover::after</code> are used to highlight the elements when hovering over them.
+                        small <code>div</code> element is used as decorations in left-side and right-side, element's css positioned as <code>position: absolute;</code> to make the content page more eye catching.</p>
+
+                        <h3 id="content-acc">Accessibility</h3>
+                            <p>Images used throughout the sections such as Ocean Warming, Coral Bleaching, and Rising Sea Levels include descriptive <code>alt</code> attributes so screen readers can describe the visual content to users who cannot see the images. Internal navigation links in the sub-navigation bar use anchor links (for example <code>href="#introduction"</code> and <code>href="#warming"</code> ) which allow users to quickly navigate to different sections of the page. Clear headings and structured content sections help users understand the topic and improve readability.</p>
+
+                        <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                            <p><a target="_blank" href="validation_ST1.html#content">Content Page Validation - content_ST1.html <i class="fa-solid fa-up-right-from-square"></i></a></p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                            
+                        <h3>Link to the page</h3>
+                            <p><a target="_blank" href="content_ST1.html">Climate Change & Ocean Impact - BlueHope - content_St1.html <i class="fa-solid fa-up-right-from-square"></i></a></p>
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="challenge"> Challenges and Lessons Learned</h2>
+                        <p>One of the main challenges encountered during the development process was implementing the gallery popup window and its's tools. it was difficult to correctly link each gallery image with its corresponding popup window. The main issue was making sure that when a user clicked the Read More button, the correct popup window opened without affecting other gallery items.
+                            This required me to learn from external sources such as w3schools webpage and youtube and get a better understanding of JavaScript DOM selection and event handling. The problme was resolved by using <code>querySelectorAll</code> to select mutiple buttons and popup elements, then using <code>forEach()</code> loop together with the <code>index</code> value to match each button with the correct corresponding popup element.
+                        By adding and removing CSS classes using <code>classList.add()</code> and <code>classList.remove()</code>, the popup visibility controlled. Through this challenge, I gained a better understanding of how JavaScript <code>querySelectorAll</code> and <code>forEach</code> works and how class manipulation can be used to create dynamic user interfaces.  </p> 
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="compliance"> Compliance</h2>
+                        <p>The pages I created for this website follow Janet compliance rules by insuring the content is appropriate for an educational website and does not include harmful or illegal material. The page do not collect any personal user data, Thease pages follow that data protection GDPR rules, Images, icons, and other resources
+                            used in these pages are taken from public sources and used responsibly to respect copyright rules. All the images used in the gallery are properly credited and privided links to the original sources, And all images used are copyright free images. 
+                            The website was built using standerd web technologies HTML, CSS, and JavaScript without adding any harmful scripts that could affect security or the user privacy. Basic Accessibility practices are also followed such as adding descriptive <code>alt</code> text for images, useing clear navigation links, and maintaining readable color palette.
+                            This shows that the pages I developed follows Janet's acceptable use rules and good web development practices for educational projects.  
+                        </p> 
+
+                        
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="group"> Group Meetings and Individual Contribution Log</h2>
+                       
+
+                            <table >
+        
+                                <thead>
+                                    <tr>
+                                        <th colspan="6">Group Meetings and Contribution Log</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Meeting</th>
+                                        <th>Date &amp; Time</th>
+                                        <th>Format</th>
+                                        <th>Objective</th>
+                                        <th>Attended</th>
+                                        <th>Your Individual Contribution</th>
+                                    </tr>
+                                </thead>
+                            
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>15 Feb 2026</td>
+                                        <td>Online</td>
+                                        <td>Agree SDG and assign roles</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I agreed to take responsibility for the Home Page, template and gallery - Student 01 role. </td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>2</td>
+                                        <td>22 Feb 2026</td>
+                                        <td>Online</td>
+                                        <td>Review template design</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I suggested the colour palette and footer wave design.</td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>3</td>
+                                        <td>01 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Template Finalization</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I presented the final template design and shared the final template amoung team members.</td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>5</td>
+                                        <td>02 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Content page topic distribution</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I agreed to do the climate impact topic</td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>5</td>
+                                        <td>08 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Page Design discussion</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I explained my home page, galley and content page design idea.</td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>6</td>
+                                        <td>15 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Page Review</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I presented my home page</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>7</td>
+                                        <td>21 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>PageEditor and Validator page</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I shared the customized PageEditor and Validator design.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>8</td>
+                                        <td>22 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Page Review</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I presented my gallery page.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>9</td>
+                                        <td>28 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Page Review</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I presented my content page. and I requsted all member's pages.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>10</td>
+                                        <td>29 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Finalization & Finding Erros</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I shared the finalized completed BlueHope WebSite ZIP file amoung team members to check it.</td>
+                                    </tr>
+                            
+                                </tbody>
+                            
+                            </table>
+                        
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="ref">References</h2>
+                    
+                        <ul class="ref">
+                        
+                            <li>Font Awesome (2026) <i>Font Awesome Icons Library.</i> Available at: <a target="_blank" href="https://fontawesome.com/">https://fontawesome.com/</a> (Last accessed: 29 March 2026).</li>
+
+                            <li>Google Fonts (2026) <i>Google Fonts.</i> Available at: <a target="_blank" href="https://fonts.google.com/">https://fonts.google.com/</a> (Last accessed: 29 March 2026).</li>
+
+                            <li>iStock (2026) <i>iStock.</i> Available at: <a target="_blank" href="https://www.istockphoto.com/">https://www.istockphoto.com/</a> (Last accessed: 29 March 2026).</li>
+
+                            <li>Pexels (2026) <i>Pexels.</i> Available at: <a target="_blank" href="https://www.pexels.com/">https://www.pexels.com/</a> (Last accessed: 29 March 2026).</li>
+
+                            <li>Pixabay (2026) <i>Pixabay.</i> Available at: <a target="_blank" href="https://pixabay.com/">https://pixabay.com/</a> (Last accessed: 29 March 2026).</li>
+
+                            <li>Unsplash (2026) <i>Unsplash.</i> Available at: <a target="_blank" href="https://unsplash.com/">https://unsplash.com/</a> (Last accessed: 29 March 2026).</li>
+
+                            <li>W3Schools (2026) <i>W3Schools Online Web Tutorials.</i> Available at: <a target="_blank" href="https://www.w3schools.com/">https://www.w3schools.com/</a> (Last accessed: 29 March 2026).</li>
+                        </ul>
+                </section>
+
+                
+            </main>
+
+            <!-- Sidebar area -->
+            <aside>
+                <h3>Core pages developed:</h3>
+
+            <!-- Customize this to the role you undertook. Keep only the list items you were responsible to develop, delete the rest -->
+                <ul class="top-level-ul">
+                    <!-- Keep only the list items you were responsible to develop, delete the rest and update the links to the corresponding markers -->
+                    <li>Student 1 - Anupama</li>
+                        <ul>
+                            <li><a href="#home">Home page </a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#content">Content</a></li>
+                        </ul>
+                    
+                    <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+                    <li><a href="#compliance">Compliance</a></li>
+                    <li><a href="#group">Group Meetings and Individual Contribution Log</a></li>
+                    <li><a href="#ref">References</a></li>
+                </ul>
+            </aside>
+        </div>
+
+
+        
+        
+       
+        
+
+
+       
+
+       
+
+
+    
+
+
+    <!--Footer Section-->
+
+    <footer>
+        <a href="#top" id="scroll-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+        <!--Footer Wave Section-->
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+
+        <!--Footer Links-->
+        <div class="footer-links">
+
+            <!--Logo and About & etc-->
+            <div class="about">
+                <div class="logo">
+                    <div>
+                        <img src="img/logo.png" alt="BlueHope logo" >
+                    </div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated
+                        to
+                        Inspiring students to protect marine ecosystems through awareness, sustainable choices, and
+                        everyday action.</p>
+                </div>
+
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+
+            <!--Quick Links-->
+
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Take Action Links-->
+
+            <div class="Take Action">
+                <div class="title">
+                    <p>Learn More</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Edit The Edior Info put your Information-->
+
+            <div class="editor-info">
+
+                <!--Academic Links Like Editor Page, Validation Pages - Put your ones-->
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a target="_blank" href="pageEditor_ST1.html" target="_blank">PageEditor : Mr.Anupama Omiru</a></li>
+                            <li><a target="_blank"  href="validation_ST1.html" target="_blank">W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST1.html" >Accessibility Statements</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST1.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Social Media Links - Put Your ones here also -->
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/anupama-omiru-dasanayake/"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="https://github.com/Anupama-Omiru-Dasanayake/"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/mr.anupama_omiru/"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="https://www.facebook.com/profile.php?id=61579235793564"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Copy Right Statement-->
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span>  <span class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights
+                reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+
+
+
+    </script>
+
+</body>
+
+</html>

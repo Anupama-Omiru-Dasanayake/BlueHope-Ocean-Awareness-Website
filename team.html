@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        /* ── CSS Variables ── */
+        :root {
+            --dark-blue: rgb(2, 6, 24);
+            --white: rgb(255, 255, 255);
+            --light-blue: rgb(38, 152, 204);
+            --transparent-light-blue: rgba(38, 152, 204, 0.3);
+            --light-light-blue: rgb(169, 214, 229);
+            --light-gray: rgb(49, 68, 82);
+            --border-radius: 35px;
+            --card-border-radius: 20px;
+            --main-text-color: var(--white);
+            --span-text-color: var(--light-blue);
+            --sub-text: var(--light-light-blue);
+            --hover: var(--light-blue);
+            --hover-transparent: rgba(38, 152, 204, 0.15);
+            --links: var(--light-blue);
+            --main-buttons: var(--dark-blue);
+            --sub-buttons: transparent;
+            --main-buttons-hover: var(--light-blue);
+            --sub-buttons-hover: var(--light-blue);
+            --border: var(--light-gray);
+            --button-border: var(--light-blue);
+
+            /* Theme colours */
+            --color-primary: #4DD0E1;
+            --color-background: #000D1A;
+            --color-surface: rgba(255, 255, 255, 0.05);
+            --color-on-background: #ffffff;
+            --color-on-surface: #E0E3E8;
+        }
+
+        /* ── Base ── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background: radial-gradient(circle at 50% 0%, #001A33 0%, #000D1A 100%);
+            color: var(--color-on-surface);
+            min-height: 100vh;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* ── Reusable ── */
+        .oceanic-glass {
+            background: rgba(0, 13, 26, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* ── MAIN ── */
+        main {
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+        }
+
+        /* ════════════════════════════════
+           HERO SECTION
+        ════════════════════════════════ */
+        .hero-section {
+            padding: 5rem 2rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero-title {
+            font-family: 'Public Sans', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: #fff;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .hero-title-accent {
+            color: var(--color-primary);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+            max-width: 42rem;
+            line-height: 1.75;
+        }
+
+        /* Hero icon orb */
+        .hero-orb-wrap {
+            display: none;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-orb-wrap {
+                display: flex;
+            }
+        }
+
+        .hero-orb {
+            position: relative;
+            width: 16rem;
+            height: 16rem;
+            background: rgba(77, 208, 225, 0.05);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(77, 208, 225, 0.2);
+        }
+
+        .hero-orb-ring {
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(77, 208, 225, 0.1);
+            border-radius: 9999px;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .hero-orb .material-symbols-outlined {
+            font-size: 6rem;
+            color: var(--color-primary);
+            opacity: 0.8;
+        }
+
+        /* ════════════════════════════════
+           TEAM GRID SECTION
+        ════════════════════════════════ */
+        .team-section {
+            padding: 3rem 2rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .team-title {
+            font-family: 'Public Sans', sans-serif;
+            font-size: clamp(1.875rem, 5vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
+        }
+
+        .team-title-accent {
+            color: var(--color-primary);
+        }
+
+        .team-title-bar {
+            height: 6px;
+            width: 6rem;
+            background: var(--color-primary);
+            margin: 1rem auto 0;
+            border-radius: 9999px;
+            box-shadow: 0 0 20px rgba(77, 208, 225, 0.2);
+        }
+
+        /* Team cards grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Member card */
+        .member-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+            cursor: default;
+        }
+
+        .member-card:hover,
+        .member-card:focus-within {
+            border-color: rgba(77, 208, 225, 0.6);
+            box-shadow: 0 0 30px rgba(77, 208, 225, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .member-card:focus-within {
+            box-shadow: 0 0 0 2px rgba(77, 208, 225, 0.4), 0 0 30px rgba(77, 208, 225, 0.15);
+        }
+
+        /* Aspect ratio wrapper */
+        .card-img-wrap {
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .member-card:hover .card-img-wrap img,
+        .member-card:focus-within .card-img-wrap img {
+            transform: scale(1.1);
+        }
+
+        /* Card info strip */
+        .card-info {
+            padding: 1.5rem;
+        }
+
+        .card-name {
+            font-family: 'Public Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+
+        .card-role {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        /* Hover overlay */
+        .member-overlay {
+            position: absolute;
+            inset: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: rgba(0, 13, 26, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .member-card:hover .member-overlay,
+        .member-card:focus-within .member-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .overlay-inner {
+            margin-bottom: 1rem;
+        }
+
+        .overlay-name {
+            font-family: 'Public Sans', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            line-height: 1.2;
+        }
+
+        .overlay-student {
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .overlay-divider {
+            height: 2px;
+            width: 3rem;
+            background: rgba(77, 208, 225, 0.4);
+            margin-bottom: 1rem;
+        }
+
+        .overlay-pages {
+            color: var(--color-on-surface);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .overlay-desc {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.625;
+            margin-top: 0.75rem;
+        }
+
+        /* ════════════════════════════════
+           PURPOSE / STATS SECTION
+        ════════════════════════════════ */
+        .purpose-section {
+            padding: 5rem 2rem;
+            max-width: 80rem;
+            margin: 3rem auto 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .purpose-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .purpose-layout {
+                flex-direction: row;
+            }
+
+            .purpose-text {
+                width: 33.333%;
+            }
+
+            .stats-grid-wrap {
+                width: 66.666%;
+            }
+        }
+
+        .purpose-heading {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .purpose-body {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.75;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .stat-item {
+                text-align: left;
+            }
+        }
+
+        .stat-number {
+            font-size: 2.25rem;
+            font-weight: 900;
+            font-family: 'Public Sans', sans-serif;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-primary);
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- Navigation -->
+    <header id="navigation-panel">
+        <nav>
+            <div class="main-navbar">
+                <a class="logo-link" href="splash.html">
+                    <div class="left">
+                        <div><img src="img/logo.png" alt="BlueHope Logo"></div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="mid">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li class="active"><a class="active" href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile"
+                                    class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sub-navbar">
+                <ul>
+                    <li><a href="#team">Meet our Team</a></li>
+                    <li><a href="#purpose">Our Purpose</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ── Hero ── -->
+        <section class="hero-section">
+            <div class="hero-grid">
+                <div>
+                    <h1 class="hero-title">
+                        Meet the <span class="hero-title-accent">Architects</span> of Change.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Meet the dedicated team behind this project, working together to design, develop, and deliver.
+                    </p>
+                </div>
+                <div class="hero-orb-wrap">
+                    <div class="hero-orb">
+                        <div class="hero-orb-ring"></div>
+                        <span class="material-symbols-outlined">waves</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br><br>
+
+        <!-- ── Team Grid ── -->
+        <section class="team-section" id="team">
+            <div class="team-header">
+                <h2 class="team-title">Meet Our <span class="team-title-accent">Team</span></h2>
+                <div class="team-title-bar"></div>
+            </div>
+
+            <div class="team-grid">
+
+                <!-- Member 1 -->
+                <div class="member-card" tabindex="0">
+                    <div class="card-img-wrap">
+                        <img alt="Anupama Dasanayake" src="img/anupama.png">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-name">Anupama Dasanayake</h3>
+                        <p class="card-role">Project Lead</p>
+                    </div>
+                    <div class="member-overlay">
+                        <div class="overlay-inner">
+                            <h4 class="overlay-name">Anupama Dasanayake</h4>
+                            <p class="overlay-student">Student 1</p>
+                            <div class="overlay-divider"></div>
+                            <div class="overlay-pages">
+                                <p>Home Page Designer</p>
+                                <p>Gallery Designer</p>
+                            </div>
+                            <p class="overlay-desc">Group leader, who contributed the most to the project. Designed the
+                                homepage and developed the overall website template.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="member-card" tabindex="0">
+                    <div class="card-img-wrap">
+                        <img alt="Janith Thilanka" src="img/janith.png">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-name">Janith Thilanka</h3>
+                        <p class="card-role">Team Member</p>
+                    </div>
+                    <div class="member-overlay">
+                        <div class="overlay-inner">
+                            <h4 class="overlay-name">Janith Thilanka</h4>
+                            <p class="overlay-student">Student 2</p>
+                            <div class="overlay-divider"></div>
+                            <div class="overlay-pages">
+                                <p>Splash Screen Designer</p>
+                                <p>Quiz Designer</p>
+                            </div>
+                            <p class="overlay-desc">Actively contributed to the project by assisting in content
+                                development and supporting the team with research tasks. Helped ensure consistency
+                                across different sections of the website.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="member-card" tabindex="0">
+                    <div class="card-img-wrap">
+                        <img alt="Isindu Liyanage" src="img/isindu.png">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-name">Isindu Liyanage</h3>
+                        <p class="card-role">Team Member</p>
+                    </div>
+                    <div class="member-overlay">
+                        <div class="overlay-inner">
+                            <h4 class="overlay-name">Isindu Liyanage</h4>
+                            <p class="overlay-student">Student 3</p>
+                            <div class="overlay-divider"></div>
+                            <div class="overlay-pages">
+                                <p>Feedback Page Designer</p>
+                                <p>Team Page Designer</p>
+                            </div>
+                            <p class="overlay-desc">Involved in implementing key features of the website and
+                                contributing to layout and design improvements. Played a role in testing and refining
+                                the functionality of the pages.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="member-card" tabindex="0">
+                    <div class="card-img-wrap">
+                        <img alt="Sudil Hesara" src="img/sudil.png">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-name">Sudil Hesara</h3>
+                        <p class="card-role">Team Member</p>
+                    </div>
+                    <div class="member-overlay">
+                        <div class="overlay-inner">
+                            <h4 class="overlay-name">Sudil Hesara</h4>
+                            <p class="overlay-student">Student 4</p>
+                            <div class="overlay-divider"></div>
+                            <div class="overlay-pages">
+                                <p>User Profile Designer</p>
+                                <p>Sitemap Designer</p>
+                            </div>
+                            <p class="overlay-desc">Supported the team by working on content organization and minor
+                                development tasks. Assisted in reviewing the website to improve usability and overall
+                                presentation.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── Purpose / Stats ── -->
+        <section class="purpose-section" id="purpose">
+            <div class="purpose-layout">
+                <div class="purpose-text">
+                    <h2 class="purpose-heading">Our Shared Purpose</h2>
+                    <p class="purpose-body">We don't just build pages; we build bridges between scientific research and
+                        public awareness. Each component was meticulously crafted to reflect the fluid nature of our
+                        oceans.</p>
+                </div>
+                <div class="stats-grid-wrap">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <p class="stat-number">240+</p>
+                            <p class="stat-label">Hours Research</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="stat-number">15</p>
+                            <p class="stat-label">Modules</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="stat-number">100%</p>
+                            <p class="stat-label">Commitment</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="stat-number">0</p>
+                            <p class="stat-label">Compromise</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#top" id="scroll-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        <div class="footer-links">
+            <div class="about">
+                <div class="logo">
+                    <div><img src="img/logo.png" alt="BlueHope logo"></div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated to inspiring students to protect
+                        marine ecosystems through awareness, sustainable choices, and everyday action.</p>
+                </div>
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="editor-info">
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a href="pageEditor_ST3.html" target="_blank">PageEditor : Isindu Liyanage</a></li>
+                            <li><a href="validation_ST3.html" target="_blank">W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST3.html#team-acc" >Accessibility Statements</a></li>
+                            <li><a target="_blank"  href="pageEditor_ST3.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span>
+                <span class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script></script>
+</body>
+
+</html>

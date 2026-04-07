@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Meta Tags-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title & Global Style sheet link-->
+
+    <title>Page Editor</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!--Google Fonts - Logo Font - 'Playfair Display'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!--Google Fonts - Content Font - 'Google Sans'--> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+    <!--Font Awsome CDNJS Icon Link-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+
+
+    <style>
+
+
+        :root {
+
+    --dark-blue: rgb(2, 6, 24);
+    --transparent-dark-blue: rgba(38, 152, 204, 0);
+    --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+    --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+    --forth-transparent-dark-blue: rgba(2, 6, 24,0.5);
+
+    --white: rgb(255, 255, 255);
+    --light-blue: rgb(38, 152, 204);
+    --light-light-blue: rgb(169, 214, 229);
+    --light-gray: rgb(49, 68, 82);
+
+    --border-radius: 35px;
+    --card-border-radius: 20px;
+
+    --main-text-color: var(--white);
+    --span-text-color: var(--light-blue);
+    --sub-text: var(--light-light-blue);
+
+    --hover: var(--light-blue);
+    --hover-transparent: var(--third-transparent-dark-blue);
+    
+    --links: var(--light-blue);
+
+    --main-buttons: var(--dark-blue);
+    --sub-buttons: transparent;
+
+    --main-buttons-hover: var(--light-blue);
+    --sub-buttons-hover: var(--light-blue);
+
+    --border: var(--light-gray);
+    --button-border: var(--light-blue);
+    
+
+}
+
+        
+        /* Add Your Page Specific Styles Here */
+
+        /* This is a Sample Styles You can Edite these styles as you want */
+        /* This is provided to get an idea */
+
+
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!--Main Navivgation bar & Sub Navigation Bar-->
+
+    <header id="navigation-panel">
+        <nav>
+            <!--Main Navigation Bar-->
+            <div class="main-navbar">
+
+                <a class="logo-link" href="splash.html">
+                    <div class="left">
+                        <div>
+                            <img src="img/logo.png" alt="BlueHope Logo">
+                        </div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!--No need to change the active class in this - Active class is set to Team -->
+                <div class="mid">
+                    <ul>
+                        <li ><a href="splash.html">splash</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li class="active"><a class="active"  href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile" class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Sub Navigation Bar - Internal Navigation-->
+
+
+            <div class="sub-navbar">
+                <!--Change the Interganl Navigation active classs According to your pageeditor-->
+                <ul>
+                    <li><a href="pageEditor_ST1.html">Student 1 - Anupama</a></li>
+                    <li><a class="active" href="pageEditor_ST2.html">Student 2 - Janith</a></li>
+                    <li><a href="pageEditor_ST3.html">Student 3 - Isindu</a></li>
+                    <li><a href="pageEditor_ST4.html">Student 4 - Sudil</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+    </header>
+
+
+    
+    
+
+        
+        
+
+        <section class="stud">
+            
+                <h1 class="section-title">Page Editor</h1>
+            
+            <h2>Janith Thilanka - w2182058 - G7 - Student 02</h2>
+        </section>
+
+        <div class="page-editor-container">
+            <!-- Main content area -->
+            <main id="page-editor-main">
+
+                <!-- Update those first three sections for the pages you were responsible to implement -->
+
+                <section class="editor-card">
+                    <h2 id="splash"> Splash Screen<span>splash.html</span> </h2>
+                        <h3>Technical Description</h3>
+                            <p>The splash screen implements multiple layers of CSS animations to create a dynamic underwater environment</p> 
+                            <p>Sun Rays Animation: The .ray elements use CSS keyframes with dynamic rotation and scaling. Each ray has individual timing using CSS custom properties <code>(--duration)</code> and delays, creating varied, organic movement patterns.</p><br/>
+                            <p>Bubble Animation: Bubbles rise from the bottom to the top using complex keyframes. Each bubble has unique properties <code>(--time, --x, --scale)</code> for varied speeds, horizontal drift, and scaling, preventing mechanical repetition.</p><br/>
+                            <p>Fish Animation: Fish swim continuously across the screen with a animation. This creates a smooth left-to-right swim cycle, with fish flipping direction at screen edges.</p><br/>
+                            <p>Fish SVG: Ellipse bodies with polygon tails, circle eyes, and line gill details</p>
+                            <p>Coral SVG: Complex path elements with custom fill colors for visual variety</p><br/>
+                            <p>Skip Button Functionality: The skip button provides user control by Clearing the timer interval with <code>clearInterval(timerInterval)</code>, Immediately redirecting to the home page,
+                                Bypassing the countdown for users who want to proceed immediately</p><br/>
+                            <p>CSS Custom Properties: <code>--duration:</code> Controls animation speed for rays, <code>--time:</code> Sets bubble ascent duration, <code>--x:</code> Horizontal drift distance for bubbles
+                                <code>--scale</code>: Size variation for bubbles, <code>--fish-y:</code> Vertical position offset for fish, <code>--fish-time:</code> Swim cycle duration</p>
+                        
+                        <h3>Accessibility</h3>
+                            <p>The skip button provides an accessible exit point for users who find animations overwhelming or want to proceed immediately. Text elements fade in with smooth animations and maintain good contrast against dark backgrounds. The content layer is positioned above animations with a high z-index, ensuring text remains readable. The layout uses clamp() for responsive typography across screen sizes.</p>
+
+                        <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                            <p><a target="_blank" href="validation_ST2.html#splashVal">Include a link to the validation page</a>, use the marker to jump to the corresponding section of the validation page.</p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                        <h3>Link to the page</h3>
+                            <p><a target="_blank" href="splash.html">Include a link to the actual page you describe.</a></p>
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="impact-simulator"> Impact Simulator<span>ais.html</span></h2>
+                        <h3>Technical Description</h3>
+                            <p>Core Structure and Layout The simulator uses a container-based layout with the main interactive elements organized in a clear, hierarchical structure. The <code>#Simulator-container</code> serves as the primary wrapper, containing three main sections: a title header, a grid of action cards, and a feedback panel.</p>
+                            <p>The action cards are arranged using CSS Grid with grid-template-columns: <code>repeat(auto-fit, minmax(280px, 1fr))</code>, which creates a responsive layout where cards automatically wrap and resize based on viewport width while maintaining a minimum width of 280 pixels.</p><br/>
+                            <p>Liquid Glass Design Implementation:</p>
+                            <p>Backdrop-filter blur: Each card and panel uses backdrop-filter: blur(6px) combined with background: rgba(255, 255, 255, 0.10) to create a translucent, frosted-glass effect</p>
+                            <p>Box shadows: box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) adds depth and dimension</p>
+                            <p>Border styling: Semi-transparent borders with border: 1px solid rgba(255, 255, 255, 0.18) complete the glass effect</p><br>
+                            <p>When the user selects actions, the calculateImpact() function evaluates the total score and applies the appropriate background image using simulatorContainer.style.backgroundImage. The background transitions smoothly with transition: background-image 0.5s ease-in-out.</p><br>
+                            <p>Event delegation: cards.forEach(card => { card.addEventListener('click', () => {...}) }) attaches listeners to each card</p>
+                            <p>Class toggling: card.classList.toggle('selected') manages the visual selection state</p>
+                            <p>Keyboard accessibility: Additional keypress event listeners check for the Enter key, enabling keyboard navigation</p><br>
+                            <p>The calculateImpact() function aggregates scores by Iterating through all cards using cards.forEach(), Checking for the selected class using classList.contains('selected'),
+                                Parsing and summing the data-impact attribute values with parseInt(), Updating the count and score displays</p>
+                        
+                        <h3>Accessibility</h3>
+                            <p>The simulator includes keyboard navigation with tabindex="0" on each card and Enter key support. Visual feedback is provided through hover effects (cards lift upward) and selected states (blue borders). Impact levels use color-coded text (red, orange, green) with sufficient contrast. The responsive layout ensures usability across devices, and all interactive elements have clear text labels describing the actions.</p>
+
+                        <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                            <p><a target="_blank" href="validation_ST2.html#volunteerVal">Include a link to the validation page</a>, use the marker to jump to the corresponding section of the validation page.</p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                            
+                        <h3>Link to the page</h3>
+                            <p><a target="_blank" href="ais.html">Include a link to the actual page you describe.</a></p>
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="content">Content Page - Overfishing <span>content_ST1.html</span></h2>
+                        <h3>Technical Description</h3>
+                            <p>Content is organized within a .content-container with max-width: 900px and centered margins, creating optimal readability. Four main sections cover Introduction, Main Causes, Coastal Impact, and Solutions.</p><br>
+                            <p>A sub-navigation bar provides anchor links to each section using href="#section-id". Smooth scrolling is enabled globally with scroll-behavior: smooth, creating seamless transitions between sections.</p><br>
+                            <p>Four images are placed throughout the content, each styled with max-height: 400px, object-fit: cover, rounded corners, and hover scaling effects. A fixed-position "Go to Top" button (bottom-right corner) links to #top on the body element, with hover effects including background color change and upward translation.</p><br>
+                            <p>The page uses Playfair Display for headings and Google Sans for body text. Heading hierarchy: H1 at 3rem, H2 at 2rem, with body text at 1.1rem and 1.8 line height for comfortable reading.</p>
+
+                        <h3>Accessibility</h3>
+                            <p>The page uses proper HTML5 elements: header, main, section with descriptive IDs, and footer. Heading hierarchy follows logical order from H1 to H2, creating a clear document outline for screen readers.</p><br>
+                            <p>Most images include alt attributes, though three have empty alt text that should be populated with descriptive content explaining their relevance to the topic.</p><br>
+                            <p>mages scale with width: 100%, and the content container uses relative units. The "Go to Top" button remains accessible across all viewport sizes</p>
+
+                        <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                            <p><a target="_blank" href="validation_ST2.html#contentVal">Include a link to the validation page</a>, use the marker to jump to the corresponding section of the validation page.</p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                            
+                        <h3>Link to the page</h3>
+                            <p><a target="_blank" href="content_ST2.html">Include a link to the actual page you describe.</a></p>
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="challenge"> Challenges and Lessons Learned</h2>
+                        <p>Challenges:</p>
+                        <p>Dynamic Background Transitions: Initially, background images changed abruptly when impact levels shifted, creating a jarring user experience. The solution was adding transition: background-image 0.5s ease-in-out to the container, smoothing the visual change.</p>
+                        <p>Keyboard Accessibility: Cards were initially only clickable with a mouse. Adding tabindex="0" and keypress event listeners for the Enter key resolved this, making the simulator fully keyboard accessible.</p><br>
+                        <p>Lessons Learned:</p>
+                        <p>Progressive enhancement matters. Starting with basic functionality then layering animations and accessibility features ensures the core experience works for all users.</p>
+                        <p>User feedback is visual. Small touches like hover effects and color changes significantly improve perceived responsiveness.</p>
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="compliance"> Compliance</h2>
+                        <p>The Ocean Impact Simulator, Splash Screen, and Overfishing Content Page comply with Janet regulations governing web page publication through several key implementations. Accessibility is addressed through semantic HTML5 elements, keyboard navigation with tabindex and Enter key support, descriptive alt text for images, and sufficient color contrast that meets WCAG standards. Data protection is ensured as none of the pages collect or store personal user data without consent. 
+                            Content accuracy is maintained by citing credible sources such as UN Food and Agriculture Organization statistics. Security is upheld by using trusted CDNs (Google Fonts, Font Awesome) and avoiding execution of untrusted code. All pages feature responsive design for inclusive access across devices, consistent navigation, and clear language. Full compliance is verified through W3C validation and accessibility testing tools.</p> 
+        
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="group"> Group Meetings and Individual Contribution Log</h2>
+                        <p>Include a Group Meetings and Contribution Log that documents your engagement with group work.</p> 
+                        Requirements:
+                            <ul> 
+                                <li>A minimum of six (6) group meetings must be recorded.</li>
+                                <li>Each student must provide their own account of the meetings.</li>
+                                <li>The log must focus on individual contribution, not just group activity.</li>
+                            </ul>
+                            <p>Feel free to follow the example table structure below:</p>
+
+                            <table >
+        
+                                <thead>
+                                    <tr>
+                                        <th colspan="6">Group Meetings and Contribution Log</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Meeting</th>
+                                        <th>Date &amp; Time</th>
+                                        <th>Format</th>
+                                        <th>Objective</th>
+                                        <th>Attended</th>
+                                        <th>Your Individual Contribution</th>
+                                    </tr>
+                                </thead>
+                            
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>15 Feb 2026</td>
+                                        <td>Online</td>
+                                        <td>Agree SDG and assign roles</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I agreed to take responsibility for the Splash Screen, impact Simulator page and  content page - Student 02 role. </td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>2</td>
+                                        <td>22 Feb 2026</td>
+                                        <td>Online</td>
+                                        <td>Review template design</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I suggested the splash Screen Design.</td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>3</td>
+                                        <td>01 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Template Finalization</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I presented the final Splash screen amoung team members.</td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>5</td>
+                                        <td>02 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Content page topic distribution</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I agreed to do the Overfishing impact topic</td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>5</td>
+                                        <td>08 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Page Design discussion</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I  present and explained my Impact Simulator page.</td>
+                                    </tr>
+                            
+                                    <tr>
+                                        <td>6</td>
+                                        <td>15 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Page Review</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I presented my Overfishing Content page</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>7</td>
+                                        <td>21 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>PageEditor and Validator page</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I  customized Splash Screen with a timer.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>8</td>
+                                        <td>22 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Page Review</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I presented Overfishing content page.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>9</td>
+                                        <td>28 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Page Review</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I presented my all pages and get the feedback</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>10</td>
+                                        <td>29 Mar 2026</td>
+                                        <td>Online</td>
+                                        <td>Finalization & Finding Erros</td>
+                                        <td>Yes</td>
+                                        <td class="contribution">I shared my finalized all pages and check other member's pages.</td>
+                                    </tr>
+                            
+                                </tbody>
+                            
+                            </table>
+                        
+                </section>
+
+                <section class="editor-card">
+                    <h2 id="ref">References</h2>
+                        <ul class="ref">
+                            <li>Unplashed Images  Available at: <a href="https://www.google.com/search?q=protect+ocean+uplash+images&rlz=1C1VDKB_enLK1188LK1188&oq=pro&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyCAgCEEUYJxg7MgYIAxBFGDsyBggEECMYJzIQCAUQABiDARixAxiABBiKBTIQCAYQABiDARixAxiABBiKBTIKCAcQABixAxiABDIKCAgQABixAxiABDIQCAkQLhiDARixAxiABBiKBdIBCTMyOTZqMGoxNagCCLACAfEFItdabjOXQqE&sourceid=chrome&ie=UTF-8">Unplash Images</a> (Last accessed: 11 Feb 2025).</li>
+                            <li>Freepik Images Available at: <a href="https://www.freepik.com/search?format=search&last_filter=query&last_value=protect+ocean&query=protect+ocean">Freepik Images</a></li>
+                        </ul>
+                </section>
+
+                
+            </main>
+
+            <!-- Sidebar area -->
+            <aside>
+                <h3>Core pages developed:</h3>
+
+            <!-- Customize this to the role you undertook. Keep only the list items you were responsible to develop, delete the rest -->
+                <ul class="top-level-ul">
+                    <!-- Keep only the list items you were responsible to develop, delete the rest and update the links to the corresponding markers -->
+
+                    <li>Student 2</li>
+                    <ul> 
+                        <li><a href="#splash">Splash Screen</a></li>
+                        <li><a href="#impact-simulator">Action Impact Simulator</a></li>
+                        <li><a href="#content">Content</a></li>
+                    </ul>
+                        
+                    <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+                    <li><a href="#compliance">Compliance</a></li>
+                    <li><a href="#group">Group Meetings and Individual Contribution Log</a></li>
+                    <li><a href="#ref">References</a></li>
+                </ul>
+            </aside>
+        </div>
+
+
+        
+        
+       
+        
+
+
+       
+
+       
+
+
+    
+
+
+    <!--Footer Section-->
+
+    <footer>
+        <a href="#top" id="scroll-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+        <!--Footer Wave Section-->
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+
+        <!--Footer Links-->
+        <div class="footer-links">
+
+            <!--Logo and About & etc-->
+            <div class="about">
+                <div class="logo">
+                    <div>
+                        <img src="img/logo.png" alt="BlueHope logo" >
+                    </div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated
+                        to
+                        Inspiring students to protect marine ecosystems through awareness, sustainable choices, and
+                        everyday action.</p>
+                </div>
+
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+
+            <!--Quick Links-->
+
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="splash.html">splash</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Take Action Links-->
+
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Edit The Edior Info put your Information-->
+
+            <div class="editor-info">
+
+                <!--Academic Links Like Editor Page, Validation Pages - Put your ones-->
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a href="pageEditor_ST2.html" target="_blank">PageEditor : Mr.Anupama Omiru</a></li>
+                            <li><a href="validation_ST2.html" target="_blank">W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST2.html" >Accessibility Statements</a></li>
+                            <li><a target="_blank"  href="pageEditor_ST2.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Social Media Links - Put Your ones here also -->
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Copy Right Statement-->
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span>  <span class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights
+                reserved.</p>
+        </div>
+
+    </footer>
+
+    <!--Dont remove this -- Linking Global Java Script File -->
+    <script src="script.js"></script>
+    <!---->
+
+    <!--Add your page specific java Scripts here-->
+    <script>
+
+        
+
+
+
+       //If you have JavaScripts add your scripts here
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Meta Tags-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title & Global Style sheet link-->
+
+    <title>Ocean Impact Simulator</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!--Google Fonts - Logo Font - 'Playfair Display'-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!--Google Fonts - Content Font - 'Google Sans'--> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+    <!--Font Awsome CDNJS Icon Link-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+
+
+    <style>
+        :root {
+            --dark-blue: rgb(2, 6, 24);
+            --transparent-dark-blue: rgba(38, 152, 204, 0);
+            --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+            --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+            --forth-transparent-dark-blue: rgba(2, 6, 24,0.5);
+
+            --white: rgb(255, 255, 255);
+            --light-blue: rgb(38, 152, 204);
+            --transparent-light-blue: rgba(38, 152, 204,0.3);
+            --transparent-light-blue: rgba(38, 152, 204,0.3);
+            --light-light-blue: rgb(169, 214, 229);
+            --light-gray: rgb(49, 68, 82);
+
+            --border-radius: 35px;
+            --card-border-radius: 20px;
+
+            --main-text-color: var(--white);
+            --span-text-color: var(--light-blue);
+            --sub-text: var(--light-light-blue);
+
+            --hover: var(--light-blue);
+            --hover-transparent: var(--third-transparent-dark-blue);
+            
+            --links: var(--light-blue);
+
+            --main-buttons: var(--dark-blue);
+            --sub-buttons: transparent;
+
+            --main-buttons-hover: var(--light-blue);
+            --sub-buttons-hover: var(--light-blue);
+
+            --border: var(--light-gray);
+            --button-border: var(--light-blue);
+        }
+
+        main{
+            padding-top: 120px;
+            
+        }
+
+        #Simulator-container {
+            
+            color: black;
+            transition: background-image 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 40px 20px;
+            min-height: 80vh;
+            /* Default background (Low Impact) */
+            background-image: url("img/background-image1.jpg");
+        }
+
+        .title-div{
+            
+            text-align: center; 
+            margin-bottom: 30px; 
+            padding: 20px; 
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            color: white;
+        }
+
+        #title-text{
+            color: var(--dark-blue);
+        }
+
+        /* Rule 2: Grid layout for action cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Rule 3: Base styling for the action cards */
+        .action-card {
+            color: white;             /*C0EAFA */
+            border: 2px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .action-card:hover{
+            /* background-color: var(--dark-blue); */
+            /* box-shadow: 0px 0px 50px 0px var(--hover); */
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.20);
+        }
+
+        .action-title{
+            color: var(--light-blue);
+        }
+
+        /* Rule 4: Selected state for action cards */
+        .action-card.selected {
+            border-color: #0077be; /* Ocean blue */
+            background-color: rgba(var(--dark-blue), 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 119, 190, 0.2);
+            background: rgba(255, 255, 255, 0.20);
+        }
+
+        /* Rule 5: Card image styling */
+        .action-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* Rule 6: Feedback panel styling */
+        .feedback-panel {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            color: white;
+        }
+
+        #impact-title{
+            color: #CCFBF1;
+        }
+    </style>
+        
+
+</head>
+
+<body>
+
+    <!--Main Navivgation bar & Sub Navigation Bar-->
+
+    <header>
+        <nav>
+            <!--Main Navigation Bar-->
+            <div class="main-navbar">
+
+                <a class="logo-link" href="home.html">
+                    <div class="left">
+                        <div>
+                            <img src="img/logo.png" alt="BlueHope Logo">
+                        </div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!--Change The active tab as yours -->
+                <div class="mid">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li  class="active"><a class="active" href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile" class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Sub Navigation Bar - Internal Navigation-->
+
+        </nav>
+
+
+    </header>
+
+
+    
+    <main>
+
+        <!-- <div class="content-container"> -->
+
+            <div id="Simulator-container">
+            <div class="title-div">
+                <h1 id="title-text">Ocean Impact Simulator</h1>
+                <p>Select the everyday actions you are willing to commit to, and see how your choices impact life below water.</p>
+            </div>
+
+            <div class="card-grid" id="action-grid">
+                
+                <div class="action-card" data-impact="3" tabindex="0">
+                    <img src="img/plastic-usage.jpg" alt="Plastic Bottles">
+                    <h2 class="action-title">Reducing Plastic Usage</h2>
+                    <p>Switching to reusable bags, bottles, and straws</p>
+                    <strong>Impact Points: 3</strong>
+                </div>
+
+                <div class="action-card" data-impact="2" tabindex="0">
+                    <img src="img/beach-cleanup.jpg" alt="cleaning up a beach">
+                    <h2 class="action-title">Join a Beach Clean-up</h2>
+                    <p>Volunteer a few hours a month to remove litter from local coastlines, rivers, or lakes.</p>
+                    <strong>Impact Points: 2</strong>
+                </div>
+
+                <div class="action-card" data-impact="3" tabindex="0">
+                    <img src="img/sustainable-seafood.jpg" alt="Fresh seafood">
+                    <h2 class="action-title">Support Sustainable Seafood</h2>
+                    <p>Use guides to avoid overfished species and support responsible, sustainable fishing practices.</p>
+                    <strong>Impact Points: 3</strong>
+                </div>
+
+                <div class="action-card" data-impact="1" tabindex="0">
+                    <img src="img/sunscreen.png" alt="Sunscreen bottle on sand">
+                    <h2 class="action-title">Choose Ocean-Friendly Products</h2>
+                    <p>Avoid Products containing microbeads, mostly in exfoliating scrubs. Go for eco-friendly Products</p>
+                    <strong>Impact Points: 1</strong>
+                </div>
+
+                <div class="action-card" data-impact="2" tabindex="0">
+                    <img src="img/spread-awareness.webp" alt="People spread awareness">
+                    <h2 class="action-title">Spread Awareness</h2>
+                    <p>Educating other people about ocean conservation encourages them to take action. Share articles, join discussions, or use social media</p>
+                    <strong>Impact Points: 2</strong>
+                </div>
+
+                <div class="action-card" data-impact="4" tabindex="0">
+                    <img src="img/carbon-footprint.jpg" alt="Carbon Footprint image">
+                    <h2 class="action-title">Reduce Carbon Footprint</h2>
+                    <p>Use energy-efficient appliances, use renewable energy sources, and reduce car travel.</p>
+                    <strong>Impact Points: 4</strong>
+                </div>
+
+            </div>
+
+            <div class="feedback-panel">
+                <h2 id="impact-title">Your Impact Summary</h2>
+                <p>Actions Selected: <span id="count-area">0</span></p>
+                <p>Total Impact Score: <span id="score-area">0</span></p>
+                <h2 id="impact-level" style="color: #CCFBF1;">Level: Select actions...</h2>
+                <p id="message-area">Select some actions above to see your impact on marine life!</p>
+            </div>
+        </div>
+
+    </main>
+    <!--Main Tag end-->
+
+
+    <!--Footer Section-->
+
+    <footer>
+        <!--Footer Wave Section-->
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+
+        <!--Footer Links-->
+        <div class="footer-links">
+
+            <!--Logo and About & etc-->
+            <div class="about">
+                <div class="logo">
+                    <div>
+                        <img src="img/logo.png" alt="BlueHope logo" >
+                    </div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated
+                        to
+                        Inspiring students to protect marine ecosystems through awareness, sustainable choices, and
+                        everyday action.</p>
+                </div>
+
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+
+            <!--Quick Links-->
+
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Take Action Links-->
+
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Edit The Edior Info put your Information-->
+
+            <div class="editor-info">
+
+                <!--Academic Links Like Editor Page, Validation Pages - Put your ones-->
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a target="_blank" href="pageEditor_ST2.html">Editor : Janith Thilanka</a></li>
+                            <li><a target="_blank" href="validation_ST2.html">W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST2.html#ais-acc" >Accessibility Statements</a></li>
+                            <li><a target="_blank"  href="pageEditor_ST2.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Social Media Links - Put Your ones here also -->
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Copy Right Statement-->
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span>  <span class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights
+                reserved.</p>
+        </div>
+
+    </footer>
+
+    <script>
+        // 1. Select all cards and output elements
+        const cards = document.querySelectorAll('.action-card');
+        const scoreArea = document.getElementById('score-area');
+        const countArea = document.getElementById('count-area');
+        const impactLevel = document.getElementById('impact-level');
+        const messageArea = document.getElementById('message-area');
+        const simulatorContainer = document.getElementById('Simulator-container');
+        const actionTitle = document.getElementsByClassName('action-title');
+
+        // 2. Define background images for the 3 levels (using transparent overlays so text remains readable)
+        const backgroundImg1 = "url('img/background-image1.jpg')";
+        const backgroundImg2 = "url('img/background-image2.jpg')";
+        const backgroundImg3 = "url('img/background-image3.jpg')";
+
+        // 3. Add click event listeners to each card
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Toggle the 'selected' CSS class
+                card.classList.toggle('selected');
+                calculateImpact();
+            });
+
+            // Keyboard accessibility (Enter key selects card)
+            card.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') {
+                    card.classList.toggle('selected');
+                    calculateImpact();
+                }
+            });
+        });
+
+        // 4. Function to calculate score and update UI
+        function calculateImpact() {
+            let totalScore = 0;
+            let selectedCardCount = 0;
+
+            // Loop through cards to find selected ones and add their data-impact value
+            cards.forEach(card => {
+                if (card.classList.contains('selected')) {
+                    totalScore += parseInt(card.getAttribute('data-impact'));
+                    selectedCardCount++;
+                }
+            });
+
+            // Update simple text displays
+            scoreArea.textContent = totalScore;
+            countArea.textContent = selectedCardCount;
+
+            // 5. Determine Impact Levels and change Background/Messages
+            if (totalScore === 0) {
+                impactLevel.textContent = "Level: Select actions...";
+                impactLevel.style.color = "#CCFBF1";
+                messageArea.textContent = "Select some actions above to see your impact on marine life!";
+                simulatorContainer.style.backgroundImage = backgroundImg1;
+                cards.forEach(card => { 
+                    card.style.border = "";
+                });
+                Array.from(actionTitle).forEach(h2 => h2.style.color = "var(--light-blue)");
+
+            } else if (totalScore <= 8) {
+                impactLevel.textContent = "Low Impact";
+                impactLevel.style.color = "#d9534f"; // Red
+                messageArea.textContent = "It's a start! Every drop in the ocean counts, but try selecting a few more actions to really make a difference.";
+                simulatorContainer.style.backgroundImage = backgroundImg1;
+                cards.forEach(card => { 
+                    card.style.border = "";
+                });
+                Array.from(actionTitle).forEach(h2 => h2.style.color = "var(--light-blue)");
+
+            } else if (totalScore <= 12) {
+                impactLevel.textContent = "Medium Impact";
+                impactLevel.style.color = "#f0ad4e"; // Orange
+                messageArea.textContent = "Great job! You are making conscious choices that help protect marine habitats. Keep it up!";
+                simulatorContainer.style.backgroundImage = backgroundImg2;
+                cards.forEach(card => { 
+                    card.style.border = "";
+                });
+                Array.from(actionTitle).forEach(h2 => h2.style.color = "var(--dark-blue)");
+                
+
+            } else {
+                impactLevel.textContent = "High Impact";
+                impactLevel.style.color = "#5cb85c"; // Green
+                messageArea.textContent = "Incredible commitment! If everyone took these actions, our oceans and marine life would thrive.";
+                simulatorContainer.style.backgroundImage = backgroundImg3;
+                cards.forEach(card => { 
+                    card.style.border = "2px solid var(--dark-blue)";
+                });
+                Array.from(actionTitle).forEach(h2 => h2.style.color = "var(--dark-blue)");
+                
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coral Reef Loss</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        /* ── CSS Variables ── */
+        :root {
+            --dark-blue: #020618;
+            --light-blue: #2698cc;
+            --light-light-blue: #a9d6e5;
+            --light-gray: #314452;
+            --white: #ffffff;
+            --card-bg: rgba(2, 6, 24, 0.5);
+            --border-radius-ocean: 35px;
+            --border-radius-card: 20px;
+
+            /* Global palette vars (for style.css compatibility) */
+            --transparent-dark-blue: rgba(38, 152, 204, 0);
+            --second-transparent-dark-blue: rgba(38, 152, 204, 0.1);
+            --third-transparent-dark-blue: rgba(38, 152, 204, 0.15);
+            --forth-transparent-dark-blue: rgba(2, 6, 24, 0.5);
+            --transparent-light-blue: rgba(38, 152, 204, 0.3);
+            --border-radius: 35px;
+            --card-border-radius: 20px;
+            --main-text-color: var(--white);
+            --span-text-color: var(--light-blue);
+            --sub-text: var(--light-light-blue);
+            --hover: var(--light-blue);
+            --hover-transparent: var(--third-transparent-dark-blue);
+            --links: var(--light-blue);
+            --main-buttons: var(--dark-blue);
+            --sub-buttons: transparent;
+            --main-buttons-hover: var(--light-blue);
+            --sub-buttons-hover: var(--light-blue);
+            --border: var(--light-gray);
+            --button-border: var(--light-blue);
+        }
+
+        /* ── Base ── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            font-family: 'Google Sans', 'Segoe UI', sans-serif;
+            min-height: 100vh;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* ── Reusable ── */
+        .ocean-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(2, 6, 24, 0.4), rgba(2, 6, 24, 0.9), rgba(2, 6, 24, 1));
+        }
+
+        .glass-card {
+            background: rgba(38, 152, 204, 0.05);
+            border: 1px solid rgba(49, 68, 82, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-blue);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #314452;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--light-blue);
+        }
+
+        /* ── MAIN ── */
+        main {
+            padding-top: 8rem;
+        }
+
+        /* ════════════════════════════════
+           HERO SECTION
+        ════════════════════════════════ */
+        .hero-section {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1.5rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 56rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            background: rgba(38, 152, 204, 0.2);
+            border: 1px solid rgba(38, 152, 204, 0.3);
+            color: var(--light-blue);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 9vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--white);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--light-light-blue);
+            font-weight: 300;
+            line-height: 1.75;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        /* ════════════════════════════════
+           MAIN CONTENT LAYOUT
+        ════════════════════════════════ */
+        .content-wrapper {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 6rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .content-wrapper {
+                flex-direction: row-reverse;
+                gap: 4rem;
+            }
+
+            .main-content {
+                width: 75%;
+            }
+
+            .aside-nav {
+                width: 20%;
+            }
+        }
+
+        /* ── Main content stack ── */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8rem;
+        }
+
+        /* ════════════════════════════════
+           CONTENT SECTIONS (shared)
+        ════════════════════════════════ */
+        .content-section {
+            scroll-margin-top: 10rem;
+        }
+
+        /* Two-column grid for text + image pairs */
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .section-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Image side */
+        .section-img-wrap {
+            position: relative;
+        }
+
+        .section-img-glow {
+            position: absolute;
+            inset: -1rem;
+            background: rgba(38, 152, 204, 0.2);
+            filter: blur(3rem);
+            border-radius: 9999px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .section-img-wrap:hover .section-img-glow {
+            opacity: 0.5;
+        }
+
+        .section-img {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: var(--border-radius-ocean);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            display: block;
+        }
+
+        /* Text side */
+        .section-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section-divider {
+            display: inline-block;
+            height: 4px;
+            width: 4rem;
+            background: var(--light-blue);
+            border-radius: 9999px;
+        }
+
+        .section-heading {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .section-body {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            color: var(--light-light-blue);
+            line-height: 1.75;
+        }
+
+        /* Reversed layout for alternating sections */
+        @media (min-width: 1024px) {
+            .section-grid.reverse .section-text {
+                order: 1;
+            }
+
+            .section-grid.reverse .section-img-wrap {
+                order: 2;
+            }
+        }
+
+        /* ════════════════════════════════
+           IMPACT STATISTICS
+        ════════════════════════════════ */
+        .impact-section {
+            scroll-margin-top: 10rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .impact-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .impact-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            color: var(--white);
+        }
+
+        .impact-bar {
+            width: 6rem;
+            height: 4px;
+            background: var(--light-blue);
+            border-radius: 9999px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .stat-card {
+            padding: 3rem;
+            border-radius: var(--border-radius-ocean);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(38, 152, 204, 0.4);
+        }
+
+        .stat-circle {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 9999px;
+            border: 4px solid var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .stat-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .stat-desc {
+            font-size: 0.875rem;
+            color: rgba(169, 214, 229, 0.8);
+            line-height: 1.625;
+        }
+
+        /* ════════════════════════════════
+           ACTIONABLE STEPS
+        ════════════════════════════════ */
+        .actions-section {
+            scroll-margin-top: 10rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .actions-callout {
+            padding: 2.5rem;
+            border-radius: var(--border-radius-ocean);
+            text-align: center;
+            max-width: 60rem;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .actions-callout p {
+            color: rgba(169, 214, 229, 0.9);
+            line-height: 1.75;
+        }
+
+        .actions-callout p.bold {
+            font-weight: 700;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .actions-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .action-card {
+            padding: 3rem;
+            border-radius: var(--border-radius-ocean);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .action-icon-wrap {
+            width: 5rem;
+            height: 5rem;
+            background: var(--dark-blue);
+            border: 1px solid rgba(38, 152, 204, 0.3);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .action-card:hover .action-icon-wrap {
+            transform: scale(1.1);
+        }
+
+        .action-icon-wrap .material-symbols-outlined {
+            font-size: 2.5rem;
+            color: var(--light-blue);
+        }
+
+        .action-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .action-desc {
+            font-size: 0.875rem;
+            color: rgba(169, 214, 229, 0.7);
+            line-height: 1.625;
+        }
+
+        /* ════════════════════════════════
+           THREATS TABLE
+        ════════════════════════════════ */
+        .threats-section {
+            scroll-margin-top: 10rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .threats-title {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .table-wrap {
+            background: var(--card-bg);
+            border: 1px solid rgba(49, 68, 82, 0.3);
+            border-radius: var(--border-radius-ocean);
+            padding: 3rem;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        thead tr {
+            border-bottom: 1px solid rgba(49, 68, 82, 0.3);
+        }
+
+        thead th {
+            padding-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--light-blue);
+            font-weight: 600;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(49, 68, 82, 0.2);
+            transition: background 0.2s;
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: rgba(38, 152, 204, 0.05);
+        }
+
+        tbody td {
+            padding: 1.5rem 0;
+        }
+
+        tbody td:first-child {
+            font-weight: 500;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(127, 29, 29, 0.3);
+            color: #f87171;
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .trend-decline {
+            color: #f87171;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ════════════════════════════════
+           ASIDE NAV
+        ════════════════════════════════ */
+        .aside-nav {
+            flex-shrink: 0;
+        }
+
+        .aside-sticky {
+            position: sticky;
+            top: 10rem;
+            padding: 1rem;
+            border-radius: var(--border-radius-ocean);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .aside-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .aside-subheading {
+            font-size: 0.75rem;
+            color: rgba(169, 214, 229, 0.5);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+
+        .aside-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            text-align: left;
+        }
+
+        .aside-nav-list a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: rgba(169, 214, 229, 0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .aside-nav-list a:hover {
+            color: var(--light-blue);
+        }
+
+        .nav-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 9999px;
+            background: rgba(38, 152, 204, 0.3);
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+
+        .aside-nav-list a:hover .nav-dot {
+            background: var(--light-blue);
+        }
+
+        /* ── Reveal animation ── */
+        .reveal {
+            transition: opacity 1s ease, transform 1s ease;
+            opacity: 0;
+            transform: translateY(2.5rem);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- Navigation -->
+    <header id="navigation-panel">
+        <nav>
+            <div class="main-navbar">
+                <a class="logo-link" href="splash.html">
+                    <div class="left">
+                        <div><img src="img/logo.png" alt="BlueHope Logo"></div>
+                        <div>
+                            <p>Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="mid">
+                    <ul>
+                        <li class="active"><a class="active" href="home.html#threats"><i class="fa-solid fa-arrow-left"></i></a></li>
+                        <li ><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="profile.html"><i id="user-profile"
+                                    class="fa-solid fa-circle-user"></i>&nbsp;&nbsp;Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ── Hero ── -->
+        <section class="hero-section" id="introduction">
+            <img alt="Vibrant Coral Reef" class="hero-bg" src="img/content-backimg.png">
+            <div class="hero-overlay ocean-gradient-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-badge">Life Below Water</span>
+                <h1 class="hero-title">Coral Reefs Loss</h1>
+                <p class="hero-subtitle">
+                    Our oceans' most vital ecosystems are vanishing. Coral reefs support 25% of all marine life, yet
+                    they face an unprecedented existential crisis due to human activity and climate shifts.
+                </p>
+            </div>
+            
+        </section>
+
+        <!-- ── Content + Aside wrapper ── -->
+        <div class="content-wrapper">
+
+            <!-- ── Main Content ── -->
+            <div class="main-content">
+
+                <!-- Section 1: Understanding Climate Impact -->
+                <section class="content-section reveal" id="understanding">
+                    <div class="section-grid">
+                        <div class="section-img-wrap">
+                            <div class="section-img-glow"></div>
+                            <img alt="Climate Impact on Arctic" class="section-img" src="img/content-img2.png">
+                        </div>
+                        <div class="section-text">
+                            <span class="section-divider"></span>
+                            <h2 class="section-heading">Understanding Climate Impact</h2>
+                            <div class="section-body">
+                                <p>The ocean plays a vital role in maintaining Earth's climate and supporting marine
+                                    life. It regulates global temperatures, produces a significant portion of the oxygen
+                                    we breathe, and provides habitats for millions of species. However, climate change
+                                    is placing enormous pressure on ocean ecosystems.</p>
+                                <p>Human activities release large amounts of greenhouse gases into the atmosphere. These
+                                    gases trap heat and cause global temperatures to rise. The ocean absorbs much of
+                                    this excess heat and carbon dioxide, which leads to several environmental changes
+                                    including ocean warming, coral bleaching, ocean acidification, and rising sea
+                                    levels.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Destructive Fishing -->
+                <section class="content-section reveal" id="fishing">
+                    <div class="section-grid reverse">
+                        <div class="section-text">
+                            <span class="section-divider"></span>
+                            <h2 class="section-heading">Destructive Fishing Practices</h2>
+                            <div class="section-body">
+                                <p>Unsustainable fishing methods represent a direct physical threat to coral structures.
+                                    Cyanide fishing, blast fishing with explosives, and bottom trawling physically
+                                    demolish centuries-old reef formations in seconds, leaving behind barren "rubble
+                                    zones" where life cannot easily return.</p>
+                                <p>Beyond physical destruction, overfishing of key species disrupts the delicate
+                                    ecological balance. When herbivorous fish are removed, algae can overgrow and
+                                    smother the coral, preventing new larvae from settling and effectively killing the
+                                    remaining reef through competition for space and light.</p>
+                            </div>
+                        </div>
+                        <div class="section-img-wrap">
+                            <div class="section-img-glow"></div>
+                            <img alt="Destructive Fishing Impact" class="section-img" src="img/content-img3.png">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Ocean Acidification -->
+                <section class="content-section reveal" id="acidification">
+                    <div class="section-grid">
+                        <div class="section-img-wrap">
+                            <div class="section-img-glow"></div>
+                            <img alt="Ocean Acidification Visual" class="section-img" src="img/content-img4.png">
+                        </div>
+                        <div class="section-text">
+                            <span class="section-divider"></span>
+                            <h2 class="section-heading">Ocean Acidification</h2>
+                            <div class="section-body">
+                                <p>As the ocean absorbs roughly 30% of the carbon dioxide released into the atmosphere,
+                                    its chemistry changes. This process, known as ocean acidification, reduces the
+                                    availability of carbonate ions—the essential building blocks corals need to
+                                    construct their calcium carbonate skeletons.</p>
+                                <p>When acidity levels rise, the rate of reef calcification slows down. In extreme
+                                    cases, the water can become so corrosive that it literally begins to dissolve
+                                    existing reef structures. This makes reefs more fragile, less able to withstand
+                                    storm damage, and slower to recover from other environmental stressors.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4: Coral Bleaching -->
+                <section class="content-section reveal" id="bleaching">
+                    <div class="section-grid reverse">
+                        <div class="section-text">
+                            <span class="section-divider"></span>
+                            <h2 class="section-heading">The Crisis of Coral Bleaching</h2>
+                            <div class="section-body">
+                                <p>Corals share a symbiotic relationship with tiny algae called zooxanthellae, which
+                                    live in their tissues and provide them with food and vibrant color. When sea
+                                    temperatures rise even by 1–2 degrees Celsius above normal, corals become stressed
+                                    and expel these algae.</p>
+                                <p>Without the algae, the coral turns ghostly white—a state known as bleaching. While a
+                                    bleached coral is not yet dead, it is under extreme stress and begins to starve. If
+                                    temperatures don't return to normal quickly, the coral will die, leading to the
+                                    collapse of the entire ecosystem that depends on it.</p>
+                            </div>
+                        </div>
+                        <div class="section-img-wrap">
+                            <div class="section-img-glow"></div>
+                            <img alt="Bleached Coral Reef" class="section-img" src="img/content-img5.png">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Impact Statistics -->
+                <section class="impact-section reveal" id="impact">
+                    <div class="impact-header">
+                        <h2 class="impact-title">Impact Statistics</h2>
+                        <div class="impact-bar"></div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="glass-card stat-card">
+                            <div class="stat-circle">90%</div>
+                            <h3 class="stat-title">Ocean Heat Absorption</h3>
+                            <p class="stat-desc">The ocean absorbs about 90% of the excess heat generated by global
+                                warming, causing rising ocean temperatures.</p>
+                        </div>
+                        <div class="glass-card stat-card">
+                            <div class="stat-circle">50%</div>
+                            <h3 class="stat-title">Coral Reefs at Risk</h3>
+                            <p class="stat-desc">Around 50% of the world's coral reefs are already threatened by rising
+                                ocean temperatures and climate-related stress.</p>
+                        </div>
+                        <div class="glass-card stat-card">
+                            <div class="stat-circle">25%</div>
+                            <h3 class="stat-title">Rising Sea Levels</h3>
+                            <p class="stat-desc">Global sea levels are rising by approximately 3.3 millimeters per year,
+                                mainly due to melting glaciers.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Actionable Steps -->
+                <section class="actions-section reveal" id="actions">
+                    <div class="glass-card actions-callout">
+                        <p>Reducing the impact of climate change requires global cooperation as well as individual
+                            actions. Governments and organizations must work together to reduce greenhouse gas emissions
+                            and transition to cleaner energy sources.</p>
+                        <p class="bold">By working together and making responsible choices, we can help protect marine
+                            ecosystems and preserve life below water for future generations.</p>
+                    </div>
+                    <div class="actions-grid">
+                        <div class="glass-card action-card">
+                            <div class="action-icon-wrap">
+                                <span class="material-symbols-outlined">shield</span>
+                            </div>
+                            <h3 class="action-title">Reduce Carbon Footprint</h3>
+                            <p class="action-desc">Lowering greenhouse gas emissions helps slow global warming and
+                                reduces ocean temperature rise.</p>
+                        </div>
+                        <div class="glass-card action-card">
+                            <div class="action-icon-wrap">
+                                <span class="material-symbols-outlined">eco</span>
+                            </div>
+                            <h3 class="action-title">Climate-Friendly Actions</h3>
+                            <p class="action-desc">Supporting renewable energy and promoting sustainable policies can
+                                reduce the effects of climate change.</p>
+                        </div>
+                        <div class="glass-card action-card">
+                            <div class="action-icon-wrap">
+                                <span class="material-symbols-outlined">water_drop</span>
+                            </div>
+                            <h3 class="action-title">Protect Marine Ecosystems</h3>
+                            <p class="action-desc">Healthy ecosystems like coral reefs help oceans adapt. Supporting
+                                conservation helps preserve habitats.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Regional Threats Table -->
+                <section class="threats-section reveal" id="threats">
+                    <h2 class="threats-title">Specific Regional Threats</h2>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Coral Species</th>
+                                    <th>Region</th>
+                                    <th>IUCN Status</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Elkhorn Coral</td>
+                                    <td>Caribbean</td>
+                                    <td><span class="status-badge">Critically Endangered</span></td>
+                                    <td><span class="trend-decline"><i class="fa-solid fa-arrow-trend-down"
+                                                style="font-size:0.75rem;"></i> Rapid Decline</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Staghorn Coral</td>
+                                    <td>Atlantic</td>
+                                    <td><span class="status-badge">Critically Endangered</span></td>
+                                    <td><span class="trend-decline"><i class="fa-solid fa-arrow-trend-down"
+                                                style="font-size:0.75rem;"></i> Decreasing</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div><!-- /.main-content -->
+
+            <!-- ── Aside Nav ── -->
+            <aside class="aside-nav">
+                <div class="glass-card aside-sticky">
+                    <div>
+                        <h3 class="aside-heading">Research Index</h3>
+                        <p class="aside-subheading">Deep Dive Exploration</p>
+                    </div>
+                    <nav>
+                        <ul class="aside-nav-list">
+                            <li><a href="#introduction"><span class="nav-dot"></span>Introduction</a></li>
+                            <li><a href="#understanding"><span class="nav-dot"></span>Climate Impact</a></li>
+                            <li><a href="#fishing"><span class="nav-dot"></span>Destructive Fishing</a></li>
+                            <li><a href="#acidification"><span class="nav-dot"></span>Acidification</a></li>
+                            <li><a href="#bleaching"><span class="nav-dot"></span>Coral Bleaching</a></li>
+                            <li><a href="#impact"><span class="nav-dot"></span>Impact Stats</a></li>
+                            <li><a href="#actions"><span class="nav-dot"></span>Take Action</a></li>
+                            <li><a href="#threats"><span class="nav-dot"></span>Regional Threats</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+        </div><!-- /.content-wrapper -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#top" id="scroll-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+        <div class="wave-design">
+            <h1>BlueHope</h1>
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        <div class="footer-links">
+            <div class="about">
+                <div class="logo">
+                    <div><img src="img/logo.png" alt="BlueHope logo"></div>
+                    <div>
+                        <p class="logo-name">Blue<span class="h2o">H<sub>2</sub>o</span>pe</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="desc">BlueHope is a non-profit organization dedicated to inspiring students to protect
+                        marine ecosystems through awareness, sustainable choices, and everyday action.</p>
+                </div>
+                <div class="love">
+                    <p>Made with ❤️ for the oceans.</p>
+                </div>
+            </div>
+            <div class="quick-links">
+                <div class="title">
+                    <p>Quick Links</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="Take Action">
+                <div class="title">
+                    <p>Take Action</p>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="content_ST4.html">Reduce Plastic</a></li>
+                        <li><a href="content_ST2.html">Sustainable Seafood</a></li>
+                        <li><a href="content_ST1.html">Why Climate Matter ?</a></li>
+                        <li><a href="content_ST3.html">Learn About Coral Reefs</a></li>
+                        <li><a href="ais.html">Check Your Impact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="editor-info">
+                <div>
+                    <div class="title">
+                        <p>Editor Info</p>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a target="_blank" href="pageEditor_ST3.html" >PageEditor : Isindu Liyanage</a></li>
+                            <li><a target="_blank" href="validation_ST3.html" >W3C Validation</a></li>
+                            <li><a  target="_blank" href="pageEditor_ST3.html#content-acc" >Accessibility Statements</a></li>
+                            <li><a target="_blank"  href="pageEditor_ST3.html#compliance" >Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="title">
+                        <p>Contact</p>
+                    </div>
+                    <div class="links contacts">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-statement">
+            <p><span class="copyright-symbol"><i class="fa-regular fa-copyright"></i>2026</span>
+                <span class="bluehope">Blue<span class="h2o">H<sub>2</sub>o</span>pe.</span>All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Smooth scroll for internal navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
